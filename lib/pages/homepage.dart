@@ -62,9 +62,18 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           title: const Text("Vidhan"),
         ),
-        body: Container(
-          alignment: Alignment.center,
-          child: const Text("This is home page"),
+        body: Column(
+          children: [
+            Container(
+              alignment: Alignment.center,
+              child: const Text("This is home page"),
+                           
+            ),
+            ElevatedButton(onPressed: (){
+              Navigator.pushNamed(context, '/quiz');
+            },
+                child: Text('Quiz'))
+          ],
         ));
   }
 }
