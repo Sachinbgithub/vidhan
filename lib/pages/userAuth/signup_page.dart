@@ -11,7 +11,6 @@ class SignUpPage extends StatefulWidget {
   State<SignUpPage> createState() => _SignUpPageState();
 }
 
-
 class _SignUpPageState extends State<SignUpPage> {
   bool _isSignup = false;
 
@@ -143,9 +142,10 @@ class _SignUpPageState extends State<SignUpPage> {
       _isSignup = true;
     });
     String email= _emailController.text;
+    String username= _usernameController.text;
     String password= _passwordController.text;
 
-    User? user= await _auth.signUpWithEmailandPassword(context, email, password);
+    User? user= await _auth.signUpWithEmailandPassword(username,context, email, password);
 
     setState(() {
       _isSignup =false;

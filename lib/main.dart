@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:vidhan/games/quize/screens/quiz_screen.dart';
 import 'package:vidhan/pages/homepage.dart';
+import 'package:vidhan/pages/settings_page.dart';
 import 'package:vidhan/pages/splashscreen.dart';
 import 'package:vidhan/pages/userAuth/login_page.dart';
+import 'package:vidhan/utility/bottom_nav.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,11 +29,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const SplashScreenWrapper(),
+      home:
+      const SplashScreenWrapper(),
       routes: {
         '/home': (context) => const HomePage(),
         '/login': (context) => const LoginPage(),
         '/quiz': (context) => const QuizScreen(),
+        // '/profile': (context) => const ProfilePage(),
+        '/settings': (context) => SettingsPage(),
+        '/nav': (context) => const BottomNav(),
       },
     );
   }
@@ -53,7 +60,7 @@ class _SplashScreenWrapperState extends State<SplashScreenWrapper> {
       FirebaseAuth.instance.authStateChanges().listen((User? user) {
         if (user != null) {
           // Navigate to the home page if the user is signed in
-          Navigator.pushReplacementNamed(context, '/home');
+          Navigator.pushReplacementNamed(context, '/nav');
         } else {
           // Navigate to the login page if the user is not signed in
           Navigator.pushReplacementNamed(context, '/login');

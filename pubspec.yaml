@@ -44,6 +44,7 @@ dev_dependencies:
   cloud_firestore: ^5.4.0
   firebase_storage: ^12.2.0
   fluttertoast: ^8.2.8
+  youtube_player_flutter: ^9.0.3
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

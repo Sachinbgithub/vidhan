@@ -149,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
     });
     if (user != null) {
       SnackBar(content: Text("sign in successfull"));
-      Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+      Navigator.pushNamedAndRemoveUntil(context, '/nav', (route) => false);
     } else {
       print("error ocured");
     }
