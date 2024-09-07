@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:vidhan/pages/homepage.dart';
-
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+  final Widget? child;
+  const SplashScreen({super.key, this.child});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -15,9 +14,9 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-    Future.delayed(Duration(seconds: 10), () {
-      Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (_) => HomePage()));
+    Future.delayed(const Duration(seconds: 5), () {
+      // Navigator.of(context)
+      //     .pushReplacement(MaterialPageRoute(builder: (_) => const LoginPage()));
     });
   }
 
@@ -33,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen>
     return Scaffold(
       body: Container(
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             gradient: LinearGradient(
                 colors: [Colors.black, Colors.black38],
                 begin: Alignment.topRight,
@@ -41,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Vidhan',
               style: TextStyle(color: Colors.white, fontSize: 30),
             ),

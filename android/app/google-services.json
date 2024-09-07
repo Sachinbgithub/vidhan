@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "861451830242",
+    "project_id": "vidhan-865c0",
+    "storage_bucket": "vidhan-865c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861451830242:android:2b4a8190de6ac086756fbb",
+        "android_client_info": {
+          "package_name": "com.example.vidhan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "861451830242-59ahi6oasfnf03fvbathnqfubitscqqm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyJsWqNsHnu9WgDdWrEb5NvdS7r9CwJfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "861451830242-59ahi6oasfnf03fvbathnqfubitscqqm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
