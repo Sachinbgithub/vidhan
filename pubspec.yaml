@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_gemini:
+  font_awesome_flutter:
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -45,6 +47,7 @@ dev_dependencies:
   firebase_storage: ^12.2.0
   fluttertoast: ^8.2.8
   youtube_player_flutter: ^9.0.3
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
