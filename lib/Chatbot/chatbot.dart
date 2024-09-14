@@ -35,6 +35,7 @@ class _Chat_BotState extends State<Chat_Bot> {
     );
     _chatSession = _model.startChat();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,6 +48,26 @@ class _Chat_BotState extends State<Chat_Bot> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Expanded(
+            //   child: ListView.builder(
+            //     controller: _scrollController,
+            //     itemCount: _chatSession.history.length,
+            //     itemBuilder: (context, index) {
+            //       final Content content = _chatSession.history.toList()[index];
+            //       final text = content.parts
+            //           .whereType<TextPart>()
+            //           .map<String>((e) => e.text)
+            //           .join('');
+            //       return msg_widget(
+            //         text: text,
+            //         isFromUser: content.role == 'user',
+            //         userColor: Color(0xFF6200EE), // Custom purple for user
+            //         botColor: Color(0xFF03DAC6),
+            //       );
+            //     },
+            //   ),
+            // ),
+
             Expanded(
               child: ListView.builder(
                 controller: _scrollController,
@@ -56,9 +77,11 @@ class _Chat_BotState extends State<Chat_Bot> {
                   final text = content.parts.whereType<TextPart>()
                       .map<String>((e) => e.text)
                       .join('');
-                  return msg_widget(
+                  return MsgWidget(
                     text: text,
                     isFromUser: content.role == 'user',
+                    userColor: Color(C96868), // Custom purple for user messages
+                    botColor: Color(FADFA1),  // Custom teal for bot messages
                   );
                 },
               ),
@@ -155,7 +178,7 @@ class _Chat_BotState extends State<Chat_Bot> {
 
   void _scrollDown() {
     WidgetsBinding.instance.addPostFrameCallback(
-          (_) => _scrollController.animateTo(
+      (_) => _scrollController.animateTo(
         _scrollController.position.maxScrollExtent,
         duration: const Duration(milliseconds: 750),
         curve: Curves.easeOutCirc,
