@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:vidhan/Chatbot/chatbot.dart';
 import 'package:vidhan/content/facts.dart';
 import 'package:vidhan/content/principles/part_3.dart';
 import 'package:vidhan/content/principles/part_3.dart';
@@ -45,7 +44,6 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomePage(),
         '/login': (context) => const LoginPage(),
         '/quize': (context) => const QuizScreen(),
-        '/ChatBot': (context) => const Chat_Bot(),
         '/part_4': (context) => DutiesAndPrinciplesPage(),
         '/facts': (context) => const Facts(),
         '/part_3': (context) => RightsPage(),
