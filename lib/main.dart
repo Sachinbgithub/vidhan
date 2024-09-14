@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:vidhan/content/facts.dart';
 import 'package:vidhan/content/principles/part_3.dart';
+import 'package:vidhan/content/principles/part_3.dart';
 import 'package:vidhan/games/quize/screens/quiz_screen.dart';
 import 'package:vidhan/pages/homepage.dart';
 import 'package:vidhan/pages/settings_page.dart';
@@ -33,15 +34,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
       home:
       const SplashScreenWrapper(),
       routes: {
         '/home': (context) => const HomePage(),
         '/login': (context) => const LoginPage(),
         '/quize': (context) => const QuizScreen(),
-        '/part_3': (context) => const Part_3(),
-        '/part_4': (context) => const Part_4(),
+        '/part_4': (context) => DutiesAndPrinciplesPage(),
         '/facts': (context) => const Facts(),
+        '/part_3': (context) => RightsPage(),
         // '/profile': (context) => const ProfilePage(),
         '/settings': (context) => SettingsPage(),
         '/nav': (context) => const BottomNav(),

@@ -282,13 +282,13 @@ class _HomePageState extends State<HomePage> {
                           horizontal: 10, vertical: 10),
                       child: Container(
                         child: Text(
-                          "Popular categories",
+                          "Constitution",
                           style: TextStyle(fontSize: 20),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 100),
+                      padding: const EdgeInsets.only(left: 150),
                       child: TextButton(
                           onPressed: () {
                             Navigator.push(
