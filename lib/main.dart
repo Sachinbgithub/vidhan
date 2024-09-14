@@ -5,6 +5,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:vidhan/content/facts.dart';
 import 'package:vidhan/content/principles/part_3.dart';
 import 'package:vidhan/content/principles/part_3.dart';
+import 'package:vidhan/content/principles/part_5.dart';
+import 'package:vidhan/content/principles/see_all.dart';
 import 'package:vidhan/games/quize/screens/quiz_screen.dart';
 import 'package:vidhan/pages/homepage.dart';
 import 'package:vidhan/pages/settings_page.dart';
@@ -44,10 +46,11 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomePage(),
         '/login': (context) => const LoginPage(),
         '/quize': (context) => const QuizScreen(),
+        '/seeall': (context) => const SeeAll(),
         '/part_4': (context) => DutiesAndPrinciplesPage(),
         '/facts': (context) => const Facts(),
         '/part_3': (context) => RightsPage(),
-        // '/profile': (context) => const ProfilePage(),
+        '/part_5': (context) =>  UnionPage(),
         '/settings': (context) => SettingsPage(),
         '/nav': (context) => const BottomNav(),
       },
