@@ -37,7 +37,7 @@ dependencies:
   curved_navigation_bar: ^1.0.6
   carousel_slider: ^5.0.0
   google_fonts: ^6.2.1
-#  rive: ^0.13.13
+  #  rive: ^0.13.13
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -54,6 +54,14 @@ dev_dependencies:
   firebase_storage: ^12.2.0
   fluttertoast: ^8.2.8
   youtube_player_flutter: ^9.0.3
+
+
+#  flutter_launcher_icons: ^0.9.2 # Check for the latest version
+#
+#  flutter_icons:
+##    android: true
+##    ios: true
+#    image_path: "assets/constitution.png" # Path to your icon image
 
 
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -80,6 +88,7 @@ flutter:
     - assets/Const.jpg
     - assets/bg1.jpeg
     - assets/const2.jpg
+    - assets/constitution.png
     - assets/crowd.jpg
     - assets/download.jpeg
     - assets/img1.jpeg
@@ -116,4 +125,4 @@ flutter:
   #         weight: 700
   #
   # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  # see https://flutter.dev/custom-fonts/#from-packages ...

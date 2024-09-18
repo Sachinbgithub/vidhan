@@ -22,8 +22,10 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color(0xFF8D493A), // AppBar color
         title: Text(
-          'Profile',
+          'P r o f i l e',
+
           style: GoogleFonts.pacifico(
+            fontSize: 25,
             color: Colors.white,
             fontWeight: FontWeight.bold,
           ),

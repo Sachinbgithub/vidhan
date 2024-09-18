@@ -5,7 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vidhan/content/facts.dart';
 import 'package:vidhan/content/principles/part_3.dart';
-import 'package:vidhan/content/principles/part_3.dart';
+
 import 'package:vidhan/content/principles/see_all.dart';
 import 'package:vidhan/games/quize/screens/quiz_screen.dart';
 import 'package:vidhan/pages/homepage.dart';
