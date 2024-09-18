@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const LoginPage(),
         '/quize': (context) => const QuizScreen(),
         '/part_4': (context) => DutiesAndPrinciplesPage(),
-        '/facts': (context) => const Facts(),
+        '/facts': (context) =>  Facts(),
         '/part_3': (context) => RightsPage(),
         '/seeall': (context) => const SeeAll(),
         // '/profile': (context) => const ProfilePage(),
