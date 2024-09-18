@@ -52,8 +52,22 @@ class _HomePageState extends State<HomePage> {
             //   },
             // ),
             ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text("H O M E"),
+              onTap: () async {
+                Navigator.pushReplacementNamed(context, '/home');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text("S E T T I N G"),
+              onTap: () async {
+                // Navigator.pushReplacementNamed(context, '/settings');
+              },
+            ),
+            ListTile(
               leading: const Icon(Icons.logout),
-              title: const Text("Sign out"),
+              title: const Text("S I G N O U T"),
               onTap: () async {
                 await FirebaseAuth.instance.signOut();
                 Navigator.pushReplacementNamed(context, '/login');

@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:vidhan/pages/homepage.dart';
 import 'package:vidhan/pages/profile_page.dart';
@@ -15,12 +16,6 @@ class _BottomNavState extends State<BottomNav> {
   int selectedindex = 0;
   PageController pageController = PageController();
 
-  // List<Widget> widgets = [
-  //   Text('Home'),
-  //   Text('Search'),
-  //   Text('Add'),
-  //   Text('Profile'),
-  // ];
   void onTapped(int index) {
     setState(() {
       selectedindex = index;
@@ -31,44 +26,43 @@ class _BottomNavState extends State<BottomNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(title: Text('Bottom Nav')),
       body: PageView(
         controller: pageController,
+        onPageChanged: (index) {
+          setState(() {
+            selectedindex = index;
+          });
+        },
         children: [
           HomePage(),
-          ProfilePage(name: 'sachin', age: 22, profilePictureUrl: 'https://i.pinimg.com/736x/9f/9f/bb/9f9fbb3b96703d08b68aaa8c34aba638.jpg', progress: 75,),
+          ProfilePage(
+            name: 'sachin',
+            age: 22,
+            profilePictureUrl:
+            'https://i.pinimg.com/736x/9f/9f/bb/9f9fbb3b96703d08b68aaa8c34aba638.jpg',
+            progress: 75,
+          ),
           ProfilePage2(),
           SettingsPage(),
-          // SnackbarWidget()
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-              ),
-              label: 'Home'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person,
-              ),
-              label: 'Profile'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.bar_chart,
-              ),
-              label: 'Stats'),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.settings,
-              ),
-              label: 'Settings'),
+      bottomNavigationBar: CurvedNavigationBar(
 
+        index: selectedindex,
+        height: 60.0,
+        items: const <Widget>[
+          Icon(Icons.home, size: 30),
+          Icon(Icons.person, size: 30),
+          Icon(Icons.bar_chart, size: 30),
+          Icon(Icons.settings, size: 30),
         ],
-        currentIndex: selectedindex,
-        selectedItemColor: Colors.green,
-        unselectedItemColor: Colors.grey,
+        color: Color(0xFFFFFBE6),
+
+        buttonBackgroundColor: Color(0xFFFFFBE6),
+        backgroundColor: Color(0xFF8D493A),
+
+        animationCurve: Curves.easeInOut,
+        animationDuration: const Duration(milliseconds: 600),
         onTap: onTapped,
       ),
     );

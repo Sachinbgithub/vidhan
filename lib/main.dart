@@ -34,8 +34,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
@@ -52,6 +54,7 @@ class MyApp extends StatelessWidget {
         // '/profile': (context) => const ProfilePage(),
         '/settings': (context) => SettingsPage(),
         '/nav': (context) => const BottomNav(),
+
       },
     );
   }
