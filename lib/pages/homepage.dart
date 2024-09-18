@@ -10,6 +10,7 @@ import 'package:vidhan/pages/settings_page.dart';
 import 'package:vidhan/utility/bottom_nav.dart';
 import '../content/video_player_page.dart';
 import 'chat.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,52 +23,60 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFFEF9D9),
       drawer: Drawer(
-        backgroundColor: Colors.grey,
+        backgroundColor: Color(0xFFFEECB3),
         child: Column(
           children: [
-            DrawerHeader(child: Text("Vidhan")),
-            // ListTile(
-            //   leading: const Icon(Icons.home),
-            //   title: const Text("Home"),
-            //   onTap: () {
-            //     // Navigator.popUntil(context, ModalRoute.withName('/home'));
-            //     // Navigator.pushReplacementNamed(context, '/home');
-            //     Navigator.pop(context);
-            //   },
-            // ),
-            // ListTile(
-            //   leading: const Icon(Icons.person),
-            //   title: const Text("Profile"),
-            //   onTap: () {
-            //     Navigator.pushNamedAndRemoveUntil(context, '/profile', (route) => false);
-            //     // Navigator.pop(context);
-            //   },
-            // ),
-            // ListTile(
-            //   leading: const Icon(Icons.settings),
-            //   title: const Text("Settings"),
-            //   onTap: () {
-            //     Navigator.pushNamed(context, '/settings');
-            //   },
-            // ),
+            DrawerHeader(
+              child: Text(
+                "V I D H A N",
+                style: GoogleFonts.poppins(
+                  // Use any Google Font here, like Poppins
+                  textStyle: TextStyle(
+                    fontSize: 40, // Adjust font size as needed
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xFFA04747), // Adjust text color as needed
+                  ),
+                ),
+              ),
+            ),
+
             ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text("H O M E"),
+              leading: const Icon(Icons.home, color: Color(0xFFA04747)),
+              title: const Text(
+                "H O M E",
+                style: TextStyle(
+                  color: Color(0xFFA04747),
+                  fontWeight: FontWeight.bold, // Set the color you want here
+                ),
+              ),
               onTap: () async {
                 Navigator.pushReplacementNamed(context, '/home');
               },
             ),
             ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text("S E T T I N G"),
+              leading: const Icon(Icons.settings, color: Color(0xFFA04747)),
+              title: const Text(
+                "S E T T I N G",
+                style: TextStyle(
+                  color: Color(0xFFA04747),
+                  fontWeight: FontWeight.bold, // Set the color you want here
+                ),
+              ),
               onTap: () async {
                 // Navigator.pushReplacementNamed(context, '/settings');
               },
             ),
             ListTile(
-              leading: const Icon(Icons.logout),
-              title: const Text("S I G N O U T"),
+              leading: const Icon(Icons.logout, color: Color(0xFFA04747)),
+              title: const Text(
+                "S I G N O U T",
+                style: TextStyle(
+                  color: Color(0xFFA04747),
+                  fontWeight: FontWeight.bold, // Set the color you want here
+                ),
+              ),
               onTap: () async {
                 await FirebaseAuth.instance.signOut();
                 Navigator.pushReplacementNamed(context, '/login');
@@ -78,7 +87,27 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       appBar: AppBar(
-        title: const Text("Vidhan"),
+        backgroundColor: Color(0xFF8D493A),
+        title: const Text(
+          "Vidhan",
+          style: TextStyle(
+            color: Color(0xFFFFFBE6),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.notifications,
+              // Use FontAwesomeIcons if you want different icons
+              color: Color(0xFFFFFBE6), // Match the text color for consistency
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, '/notifications');
+            },
+          ),
+          SizedBox(width: 16), // Optional spacing between icons
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -309,7 +338,7 @@ class _HomePageState extends State<HomePage> {
                             Navigator.push(
                                 context,
                                 Navigator.pushNamed(context, '/seeall')
-                                as Route<Object?>);
+                                    as Route<Object?>);
                           },
                           child: Text(
                             "See all",
@@ -383,14 +412,14 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         image: const DecorationImage(
-                        filterQuality: FilterQuality.medium ,
-                        image: AssetImage('assets/part_IV.jpg'),
-                        fit: BoxFit.cover,
-                      ),
+                          filterQuality: FilterQuality.medium,
+                          image: AssetImage('assets/part_IV.jpg'),
+                          fit: BoxFit.cover,
+                        ),
                         // color: Colors.red,
-                        gradient: const LinearGradient(colors: [Colors.red, Colors.transparent]),
+                        gradient: const LinearGradient(
+                            colors: [Colors.red, Colors.transparent]),
                         borderRadius: BorderRadius.circular(10),
-
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
@@ -419,7 +448,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-                ), Padding(
+                ),
+                Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   child: GestureDetector(
@@ -432,14 +462,14 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         image: const DecorationImage(
-                        filterQuality: FilterQuality.medium ,
-                        image: AssetImage('assets/crowd.jpg'),
-                        fit: BoxFit.cover,
-                      ),
+                          filterQuality: FilterQuality.medium,
+                          image: AssetImage('assets/crowd.jpg'),
+                          fit: BoxFit.cover,
+                        ),
                         // color: Colors.red,
-                        gradient: const LinearGradient(colors: [Colors.red, Colors.transparent]),
+                        gradient: const LinearGradient(
+                            colors: [Colors.red, Colors.transparent]),
                         borderRadius: BorderRadius.circular(10),
-
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(

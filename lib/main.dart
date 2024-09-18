@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:vidhan/content/facts.dart';
 import 'package:vidhan/content/principles/part_3.dart';
 import 'package:vidhan/content/principles/part_3.dart';
@@ -14,7 +15,6 @@ import 'package:vidhan/pages/userAuth/login_page.dart';
 import 'package:vidhan/utility/bottom_nav.dart';
 
 import 'content/principles/part_4.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,15 +34,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-
+        textTheme: GoogleFonts.poppinsTextTheme(
+          Theme.of(context)
+              .textTheme, // You can replace 'poppins' with any font
+        ),
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home:
-      const SplashScreenWrapper(),
+      home: const SplashScreenWrapper(),
       routes: {
         '/home': (context) => const HomePage(),
         '/login': (context) => const LoginPage(),
@@ -54,13 +55,12 @@ class MyApp extends StatelessWidget {
         // '/profile': (context) => const ProfilePage(),
         '/settings': (context) => SettingsPage(),
         '/nav': (context) => const BottomNav(),
-
       },
     );
   }
 }
 
-class SplashScreenWrapper extends StatefulWidget{
+class SplashScreenWrapper extends StatefulWidget {
   const SplashScreenWrapper({super.key});
 
   @override

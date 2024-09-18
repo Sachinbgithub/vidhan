@@ -58,7 +58,7 @@ class _BottomNavState extends State<BottomNav> {
         ],
         color: Color(0xFFFFFBE6),
 
-        buttonBackgroundColor: Color(0xFFFFFBE6),
+        buttonBackgroundColor: Color(0xFFF8EDE3),
         backgroundColor: Color(0xFF8D493A),
 
         animationCurve: Curves.easeInOut,

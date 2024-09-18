@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ProfilePage extends StatelessWidget {
   final String name;
@@ -17,9 +18,23 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFFAF3F3), // Background color for the profile page
       appBar: AppBar(
-        title: Text('Profile'),
+        backgroundColor: Color(0xFF8D493A), // AppBar color
+        title: Text(
+          'Profile',
+          style: GoogleFonts.pacifico(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushReplacementNamed(context, '/home'); // Navigate to home page
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -28,73 +43,117 @@ class ProfilePage extends StatelessWidget {
           children: [
             // Profile Picture
             CircleAvatar(
-              radius: 70,
-              backgroundImage: NetworkImage(profilePictureUrl),
-              backgroundColor: Colors.grey.shade200,
+              radius: 60,
+              backgroundImage: AssetImage('assets/profile_richard.jpg'), // Replace with your image asset
             ),
             SizedBox(height: 20),
-
-            // Name
+            // User Name
             Text(
-              name,
-              style: TextStyle(
-                fontSize: 28,
+              'Sufi_s   ',
+              style: GoogleFonts.pacifico(
+                fontSize: 40,
+                color: Color(0xFF8D493A),
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 10),
-
-            // Age
+            // User Info
             Text(
-              'Age: $age',
-              style: TextStyle(
+              'Flutter Developer | Tech Enthusiast',
+              style: GoogleFonts.openSans(
                 fontSize: 20,
                 color: Colors.grey[600],
               ),
             ),
-            SizedBox(height: 20),
-
-            // Progress
-            Text(
-              'Progress: ${progress.toStringAsFixed(0)}%',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-              ),
+            SizedBox(height: 30),
+            // Stats Cards
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                _buildStatCard('20', 'Completed Quizzes'),
+                _buildStatCard('50', 'Achievements'),
+              ],
             ),
-            SizedBox(height: 10),
-
-            // Progress Bar
-            Container(
-              width: double.infinity,
-              child: LinearProgressIndicator(
-                value: progress / 100, // Convert to a value between 0.0 and 1.0
-                minHeight: 20,
-                backgroundColor: Colors.grey[300],
-                color: Colors.blue,
-              ),
-            ),
-            SizedBox(height: 20),
-
-            // Edit Profile Button
+            SizedBox(height: 30),
+            // Action Buttons
             ElevatedButton(
               onPressed: () {
-                // Handle edit profile action
+                // Navigate to settings or any other page
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue, // Button color
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                backgroundColor: Color(0xFF8D493A), // Button color
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(12),
                 ),
               ),
               child: Text(
-                'Edit Profile',
-                style: TextStyle(fontSize: 18),
+                'Settings',
+                style: GoogleFonts.openSans(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                // Handle logout or other actions
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFFFDDE55), // Button color
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              child: Text(
+                'Logout',
+                style: GoogleFonts.openSans(
+                  fontSize: 20,
+                  color: Colors.black,
+                ),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildStatCard(String value, String label) {
+    return Container(
+      width: 160,
+      height: 120,
+      decoration: BoxDecoration(
+        color: Color(0xFF68D2E8), // Card background color
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.3),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: Offset(0, 7),
+          ),
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            value,
+            style: GoogleFonts.pacifico(
+              fontSize: 30,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            label,
+            style: GoogleFonts.openSans(
+              fontSize: 20,
+              color: Colors.white,
+            ),
+          ),
+        ],
       ),
     );
   }
