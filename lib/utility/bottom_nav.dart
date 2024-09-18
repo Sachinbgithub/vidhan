@@ -26,6 +26,7 @@ class _BottomNavState extends State<BottomNav> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: PageView(
         controller: pageController,
         onPageChanged: (index) {
@@ -39,7 +40,7 @@ class _BottomNavState extends State<BottomNav> {
             name: 'sachin',
             age: 22,
             profilePictureUrl:
-            'https://i.pinimg.com/736x/9f/9f/bb/9f9fbb3b96703d08b68aaa8c34aba638.jpg',
+                'https://i.pinimg.com/736x/9f/9f/bb/9f9fbb3b96703d08b68aaa8c34aba638.jpg',
             progress: 75,
           ),
           ProfilePage2(),
@@ -47,7 +48,6 @@ class _BottomNavState extends State<BottomNav> {
         ],
       ),
       bottomNavigationBar: CurvedNavigationBar(
-
         index: selectedindex,
         height: 60.0,
         items: const <Widget>[
@@ -56,11 +56,9 @@ class _BottomNavState extends State<BottomNav> {
           Icon(Icons.bar_chart, size: 30),
           Icon(Icons.settings, size: 30),
         ],
-        color: Color(0xFFFFFBE6),
-
+        color: Color(0xFFA1887F),
         buttonBackgroundColor: Color(0xFFF8EDE3),
         backgroundColor: Color(0xFF8D493A),
-
         animationCurve: Curves.easeInOut,
         animationDuration: const Duration(milliseconds: 600),
         onTap: onTapped,

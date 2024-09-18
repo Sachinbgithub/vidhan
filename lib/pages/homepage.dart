@@ -4,11 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vidhan/Chatbot/chatbot.dart';
-import 'package:vidhan/main.dart';
-import 'package:vidhan/pages/profile_page.dart';
-import 'package:vidhan/pages/settings_page.dart';
-import 'package:vidhan/utility/bottom_nav.dart';
-import '../content/video_player_page.dart';
 import 'chat.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFEF9D9),
+      backgroundColor: Colors.brown[200],
       drawer: Drawer(
         backgroundColor: Color(0xFFFEECB3),
         child: Column(
@@ -87,7 +82,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: Color(0xFF8D493A),
+        backgroundColor: Colors.brown[400],
         title: const Text(
           "Vidhan",
           style: TextStyle(
@@ -316,6 +311,84 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              Navigator.pushNamed(context, '/facts')
+                                  as Route<Object?>);
+                        },
+                        child: Container(
+                          height: 100,
+                          width: 100,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: const DecorationImage(
+                                image: AssetImage('assets/court2.jpg'),
+                                // Replace with your background image path
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ),
+                      )  ,
+                      Spacer(),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              Navigator.pushNamed(context, '/snake')
+                                  as Route<Object?>);
+                        },
+                        child: Container(
+                          height: 100,
+                          width: 100,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.black38,
+                              image: const DecorationImage(
+                                image: AssetImage('assets/snl.png'),
+                                // Replace with your background image path
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Spacer(),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              Navigator.pushNamed(context, '/web')
+                                  as Route<Object?>);
+                        },
+                        child: Container(
+
+                          height: 100,
+                          width: 100,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: const DecorationImage(
+                                image: AssetImage('assets/word.png'),
+                                // Replace with your background image path
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 SizedBox(
                   height: 10,
                 ),
@@ -349,6 +422,7 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
+
                 SizedBox(
                   height: 10,
                 ),

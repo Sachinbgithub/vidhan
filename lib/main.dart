@@ -8,6 +8,7 @@ import 'package:vidhan/content/principles/part_3.dart';
 import 'package:vidhan/content/principles/part_3.dart';
 import 'package:vidhan/content/principles/see_all.dart';
 import 'package:vidhan/games/quize/screens/quiz_screen.dart';
+import 'package:vidhan/games/snakes/snakes_ladders.dart';
 import 'package:vidhan/pages/homepage.dart';
 import 'package:vidhan/pages/settings_page.dart';
 import 'package:vidhan/pages/splashscreen.dart';
@@ -15,6 +16,7 @@ import 'package:vidhan/pages/userAuth/login_page.dart';
 import 'package:vidhan/utility/bottom_nav.dart';
 
 import 'content/principles/part_4.dart';
+import 'games/educandy.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,9 +50,12 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomePage(),
         '/login': (context) => const LoginPage(),
         '/quize': (context) => const QuizScreen(),
+        '/snake': (context) => const GameHome(),
+        '/edu': (context) => const WebViewExample(),
         '/part_4': (context) => DutiesAndPrinciplesPage(),
         '/facts': (context) =>  Facts(),
         '/part_3': (context) => RightsPage(),
+        '/web': (context) => const WebViewExample(),
         '/seeall': (context) => const SeeAll(),
         // '/profile': (context) => const ProfilePage(),
         '/settings': (context) => SettingsPage(),

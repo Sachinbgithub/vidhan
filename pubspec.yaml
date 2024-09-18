@@ -37,6 +37,9 @@ dependencies:
   curved_navigation_bar: ^1.0.6
   carousel_slider: ^5.0.0
   google_fonts: ^6.2.1
+
+
+  webview_flutter: ^4.9.0
 #  rive: ^0.13.13
 
 
@@ -86,7 +89,7 @@ flutter:
     - assets/img2.jpg
     - assets/img3.jpg
     - assets/part_IV.jpg
-    - assets/profile_richard.png
+#    - assets/profile_richard.png
     - assets/protest.jpg
     - assets/triangles.png
 

@@ -43,7 +43,9 @@ class FactsPage extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/download.jpeg'), // Your background image
+              image: AssetImage('assets/download.jpeg'),
+              // Your background image
+
               fit: BoxFit.cover,
             ),
           ),
@@ -96,22 +98,26 @@ class FactsPage extends StatelessWidget {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFFD2B48C), // Light brown button color
+                        backgroundColor: Color(0xFFD2B48C),
+                        // Light brown button color
                         shape: RoundedRectangleBorder(
                           borderRadius:
-                          BorderRadius.circular(30), // Curved shape
-                          side:
-                          BorderSide(color: Colors.black.withOpacity(0.5), width: 1), // Border color and width
+                              BorderRadius.circular(30), // Curved shape
+                          side: BorderSide(
+                              color: Colors.black.withOpacity(0.5),
+                              width: 1), // Border color and width
                         ),
                         elevation:
-                        10, // Elevation for a shadow effect (3D look)
+                            10, // Elevation for a shadow effect (3D look)
                       ),
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
                           facts[index],
-                          style:
-                          TextStyle(fontSize: 16, color: Colors.black), // Dark text color for visibility
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: Colors
+                                  .black), // Dark text color for visibility
                         ),
                       ),
                     ),
@@ -130,7 +136,9 @@ class FactDetailPage extends StatelessWidget {
   final String articleTitle;
   final String description;
 
-  const FactDetailPage({Key? key, required this.articleTitle, required this.description}) : super(key: key);
+  const FactDetailPage(
+      {Key? key, required this.articleTitle, required this.description})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -139,41 +147,37 @@ class FactDetailPage extends StatelessWidget {
         title: Text(articleTitle),
         backgroundColor: Color(0xFF8B4513), // Dark brown app bar color
       ),
-      body: Stack(
+      body: ListView(
         children: [
-          // Background Image for Detail Page
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image:
-                AssetImage('assets/bg1.jpg'), // Your background image for detail page
-                fit: BoxFit.cover,
+          Stack(
+          children: [
+            // Background Image for Detail Page
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/bg1.jpg'),
+                  // Your background image for detail page
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment:
-              CrossAxisAlignment.start,
-              children: [
-                SizedBox(height:
-                80),
-                Text(articleTitle,
-                    style:
-                    const TextStyle(fontSize:
-                    24, fontWeight:
-                    FontWeight.bold)),
-                const SizedBox(height:
-                30),
-                Text(description,
-                    style:
-                    const TextStyle(fontSize:
-                    16)),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 80),
+                  Text(articleTitle,
+                      style: const TextStyle(
+                          fontSize: 24, fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 30),
+                  Text(description, style: const TextStyle(fontSize: 16)),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
+      ],
       ),
     );
   }
