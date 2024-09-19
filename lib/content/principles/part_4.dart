@@ -62,11 +62,30 @@ class DutiesAndPrinciplesPage extends StatelessWidget {
         "The State shall strive to provide a decent standard of living for all its citizens.",
   };
 
+  // Articles for Duties
+  final Map<String, List<String>> dutyArticles = {
+    "Duty to abide by the Constitution": [
+      'Article 51A(a): To abide by the Constitution.',
+      'Article 51A(b): To respect its ideals and institutions.',
+      'Article 51A(c): To uphold and protect the sovereignty, unity, and integrity of India.',
+      // Add more articles as needed
+    ],
+  };
+
+  // Articles for Principles
+  final Map<String, List<String>> principleArticles = {
+    "Principle of Social Justice": [
+      'Article 38: The State shall strive to promote social order.',
+      'Article 39: The State shall direct its policy towards securing...',
+      // Add more articles as needed
+    ],
+  };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Part IV'),
+        title: const Text('Part IV - Duties & Principles'),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -79,7 +98,9 @@ class DutiesAndPrinciplesPage extends StatelessWidget {
               const SizedBox(height: 10),
               ...duties.map((duty) {
                 return DutyCard(
-                    duty: duty, description: dutyDescriptions[duty]!);
+                    duty: duty,
+                    description: dutyDescriptions[duty]!,
+                    articles: dutyArticles[duty] ?? []);
               }).toList(),
               const SizedBox(height: 20),
               const Text('Directive Principles of State Policy',
@@ -88,7 +109,8 @@ class DutiesAndPrinciplesPage extends StatelessWidget {
               ...principles.map((principle) {
                 return DutyCard(
                     duty: principle,
-                    description: principleDescriptions[principle]!);
+                    description: principleDescriptions[principle]!,
+                    articles: principleArticles[principle] ?? []);
               }).toList(),
             ],
           ),
@@ -101,8 +123,13 @@ class DutiesAndPrinciplesPage extends StatelessWidget {
 class DutyCard extends StatelessWidget {
   final String duty;
   final String description;
+  final List<String> articles;
 
-  const DutyCard({Key? key, required this.duty, required this.description})
+  const DutyCard(
+      {Key? key,
+      required this.duty,
+      required this.description,
+      required this.articles})
       : super(key: key);
 
   @override
@@ -112,13 +139,13 @@ class DutyCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) =>
-                ArticleDetailPage(article: duty, description: description),
+            builder: (context) => ArticleDetailPage(
+                article: duty, description: description, articles: articles),
           ),
         );
       },
       child: Card(
-        color: Colors.teal.shade300,
+        color: Colors.amber,
         elevation: 4,
         margin: const EdgeInsets.symmetric(vertical: 8),
         child: Padding(
@@ -128,8 +155,9 @@ class DutyCard extends StatelessWidget {
             children: [
               Text(duty,
                   style: const TextStyle(
-                    color: Colors.white,
-                      fontSize: 18, fontWeight: FontWeight.bold)),
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold)),
               const SizedBox(height: 8),
               Text(description,
                   style: const TextStyle(fontSize: 14, color: Colors.white70)),
@@ -144,9 +172,14 @@ class DutyCard extends StatelessWidget {
 class ArticleDetailPage extends StatelessWidget {
   final String article;
   final String description;
+  final List<String> articles;
+
   final AudioPlayer audioPlayer = AudioPlayer();
 
-  ArticleDetailPage({required this.article, required this.description});
+  ArticleDetailPage(
+      {required this.article,
+      required this.description,
+      required this.articles});
 
   void _playAudio() async {
     // Replace with your audio file path
@@ -161,28 +194,77 @@ class ArticleDetailPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("Description of $article",
-                style:
-                    const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 10),
-            Text(description, style: const TextStyle(fontSize: 16)),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _playAudio,
-              style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.green,
-                // Text color
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                textStyle: const TextStyle(fontSize: 16),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.amber, // Light amber background
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 2,
+                blurRadius: 5,
+                offset: const Offset(0, 3), // changes position of shadow
               ),
-              child: const Text("Listen to Article"),
+            ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Articles under \n$article :",
+                    style: const TextStyle(
+                        fontSize: 24,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold)),
+                const SizedBox(height: 20),
+                ...articles
+                    .map((subArticle) => Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.amber[200],
+                              borderRadius: BorderRadius.circular(8),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.3),
+                                  spreadRadius: 1,
+                                  blurRadius: 3,
+                                  offset: const Offset(0, 1),
+                                ),
+                              ],
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Text(
+                                subArticle,
+                                style: const TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.black54,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ))
+                    .toList(),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: _playAudio,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.amberAccent,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 15),
+                    textStyle: const TextStyle(fontSize: 18),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  child: const Icon(
+                      Icons.voice_chat), // Changed button text to an icon
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

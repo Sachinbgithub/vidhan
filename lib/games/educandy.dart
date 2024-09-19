@@ -49,7 +49,7 @@ class _WebViewExampleState extends State<WebViewExample> {
           },
         ),
       )
-      ..loadRequest(Uri.parse('https://flutter.dev'));
+      ..loadRequest(Uri.parse('https://www.educandy.com/site/resource.php?quizID=1010559'));
     // Initialize the WebView controller.
     // _controller = WebViewController()
     //   ..setJavaScriptMode(JavaScriptMode.unrestricted)
