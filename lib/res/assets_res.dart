@@ -11,14 +11,17 @@ class AssetsRes {
   static const String CONST = 'assets/Const.jpg';
   static const String BG1 = 'assets/bg1.jpeg';
   static const String CONST2 = 'assets/const2.jpg';
-  static const String CONSTITUTION = 'assets/constitution.png';
+  static const String COURT = 'assets/court.jpg';
+  static const String COURT2 = 'assets/court2.jpg';
   static const String CROWD = 'assets/crowd.jpg';
   static const String DOWNLOAD = 'assets/download.jpeg';
   static const String IMG1 = 'assets/img1.jpeg';
   static const String IMG2 = 'assets/img2.jpg';
   static const String IMG3 = 'assets/img3.jpg';
   static const String PART_IV = 'assets/part_IV.jpg';
-  static const String PROFILE_RICHARD = 'assets/profile_richard.png';
   static const String PROTEST = 'assets/protest.jpg';
+  static const String SNL = 'assets/snl.png';
   static const String TRIANGLES = 'assets/triangles.png';
+  static const String VECTORSTOCK_1014 = 'assets/vectorstock_1014.jpg';
+  static const String WORD = 'assets/word.png';
 }

@@ -37,10 +37,10 @@ dependencies:
   curved_navigation_bar: ^1.0.6
   carousel_slider: ^5.0.0
   google_fonts: ^6.2.1
-
+  lottie: ^3.1.2
 
   webview_flutter: ^4.9.0
-#  rive: ^0.13.13
+  #  rive: ^0.13.13
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -83,15 +83,19 @@ flutter:
     - assets/Const.jpg
     - assets/bg1.jpeg
     - assets/const2.jpg
+    - assets/court.jpg
+    - assets/court2.jpg
     - assets/crowd.jpg
     - assets/download.jpeg
     - assets/img1.jpeg
     - assets/img2.jpg
     - assets/img3.jpg
     - assets/part_IV.jpg
-#    - assets/profile_richard.png
     - assets/protest.jpg
+    - assets/snl.png
     - assets/triangles.png
+    - assets/vectorstock_1014.jpg
+    - assets/word.png
 
   #   - images/a_dot_ham.jpeg
 
