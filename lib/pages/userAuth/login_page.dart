@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:vidhan/pages/userAuth/form_controller_widget.dart';
 import 'package:vidhan/pages/userAuth/signup_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -31,146 +32,160 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-
-          color: Color(0xFFFF8A8A),
-          // gradient: LinearGradient(
-          //   colors: [
-          //     Color(0xFFD0B8A8), // Light Blue color code
-          //     Color(0xFF8D493A), // Dark Blue color code
-          //   ],
-          //   begin: Alignment.topLeft,
-          //   end: Alignment.bottomRight,
-          // ),
-
+          image: DecorationImage(
+            image: AssetImage("assets/register.png"), // Replace with your image path
+            fit: BoxFit.cover, // Adjust how the image fits (cover, contain, etc.)
+          ),
         ),
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  "Welcome!",
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFFCCE0AC),
-                    shadows: [
-                      Shadow(
-                        blurRadius: 10.0,
-                        color: Colors.black45,
-                        offset: Offset(3.0, 3.0),
-                      ),
-                    ],
-                  ),
-                ),
-                Image.asset(
-                  'assets/learn_cons.jpg', // Use a more game-like logo
-                  width: 150,
-                  height: 150,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                FormContainerWidget(
-                  controller: _emailController,
-                  hintText: "Email",
-                  isPasswordField: false,
-                  validator: (value) {
-                    if (value == null || !value.contains('@')) {
-                      return 'Invalid Email';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                FormContainerWidget(
-                    controller: _passwordController,
-                    hintText: "Password",
-                    isPasswordField: true,
-                    validator: (value) {
-                      if (value == null || value.isEmpty || value.length < 6) {
-                        return 'Password is too short';
-                      }
-                      return null;
-                    }),
-                const SizedBox(
-                  height: 20,
-                ),
-                GestureDetector(
-                  onTap: _signIn,
-                  child: Container(
-                    width: double.infinity,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFCCE0AC),
-
-                      // gradient: LinearGradient(
-                      //   colors: [
-                      //     Color(0xFF8D493A), // Hex color #8D493A
-                      //     Color(0xFFF8EDE3), // Hex color #F8EDE3
-                      //   ],
-                      //   begin: Alignment.topLeft,
-                      //   end: Alignment.bottomRight,
-                      // ),
-                      borderRadius: BorderRadius.circular(50),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black45,
-                          blurRadius: 10,
-                          offset: Offset(3, 3),
-                        ),
-                      ],
-                    ),
-                    child: Center(
-                      child: _isSigning
-                          ? CircularProgressIndicator(
-                        color: Colors.white,
-                      )
-                          : Text(
-                        "Play & Login",
-                        style: TextStyle(
-                          color: Color(0xFF8D493A),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Row(
+        child: Stack(
+          children: [
+            // Lottie animation added here
+            Positioned.fromRect(
+              rect: Rect.fromLTWH(100, 10, 210, 250),
+              child: Lottie.network(
+                'https://lottie.host/6064e841-95af-485f-9d4a-77a0ea1ca795/bXWouOhFq6.json',
+              ),
+            ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      "New Here?",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const SignUpPage()),
-                                (route) => false);
-                      },
-                      child: const Text(
-                        "Sign Up",
-                        style: TextStyle(color: Colors.orangeAccent),
+                      "L O G I N ",
+                      style: TextStyle(
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        shadows: [
+                          Shadow(
+                            blurRadius: 10.0,
+                            color: Colors.black45,
+                            offset: Offset(3.0, 3.0),
+                          ),
+                        ],
                       ),
                     ),
+                    const SizedBox(height: 30),
+                    FormContainerWidget(
+                      controller: _emailController,
+                      hintText: "Email",
+                      isPasswordField: false,
+                      validator: (value) {
+                        if (value == null || !value.contains('@')) {
+                          return 'Invalid Email';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 20),
+                    FormContainerWidget(
+                      controller: _passwordController,
+                      hintText: "Password",
+                      isPasswordField: true,
+                      validator: (value) {
+                        if (value == null || value.isEmpty || value.length < 6) {
+                          return 'Password is too short';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 30),
+                    GestureDetector(
+                      onTap: _signIn,
+                      child: Container(
+                        width: double.infinity,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF004271),
+                          borderRadius: BorderRadius.circular(50),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black45,
+                              blurRadius: 10,
+                              offset: Offset(3, 7),
+                            ),
+                          ],
+                        ),
+                        child: Center(
+                          child: _isSigning
+                              ? CircularProgressIndicator(
+                            color: Colors.white,
+                          )
+                              : Text(
+                            "Play & Login",
+                            style: TextStyle(
+                              color: Color(0xFFFFF4EA),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "New Here?",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        const SizedBox(width: 5),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SignUpPage()),
+                                    (route) => false);
+                          },
+                          child: const Text(
+                            "Sign Up",
+                            style: TextStyle(color: Colors.orangeAccent),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 30),
+
+                    // Skip Button at the bottom
+                    // Skip Button with modified size
+                    GestureDetector(
+                      onTap: _skipLogin,
+                      child: Container(
+                        width: 200,  // Adjust this value to change the width (for example, 200 instead of double.infinity)
+                        height: 45,  // Adjust this value to change the height (for example, 45 instead of 50)
+                        decoration: BoxDecoration(
+                          color: Colors.orangeAccent,  // Button color
+                          borderRadius: BorderRadius.circular(50),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black45,
+                              blurRadius: 10,
+                              offset: Offset(3, 3),
+                            ),
+                          ],
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Skip",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+
                   ],
                 ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
@@ -183,7 +198,8 @@ class _LoginPageState extends State<LoginPage> {
     String email = _emailController.text;
     String password = _passwordController.text;
 
-    User? user = await _auth.signInWithEmailandPassword(context, email, password);
+    User? user = await _auth.signInWithEmailandPassword(
+        context, email, password);
 
     setState(() {
       _isSigning = false;
@@ -196,5 +212,10 @@ class _LoginPageState extends State<LoginPage> {
     } else {
       print("Error occurred");
     }
+  }
+
+  // Skip button action
+  void _skipLogin() {
+    Navigator.pushNamedAndRemoveUntil(context, '/nav', (route) => false);
   }
 }
