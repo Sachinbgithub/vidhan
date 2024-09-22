@@ -78,6 +78,13 @@ class DutiesAndPrinciplesPage extends StatelessWidget {
       'Article 38: The State shall strive to promote social order.',
       'Article 39: The State shall direct its policy towards securing...',
       // Add more articles as needed
+      'Article 41: The State shall make effective provision for securing...',
+      'Article 42: The State shall make provision for securing just...',
+      'Article 43: The State shall endeavor to secure for all workers...',
+      'Article 44: The State shall endeavor to secure for all citizens...',
+      'Article 45: The State shall endeavor to provide early childhood care...',
+      'Article 46: The State shall promote with special care...',
+      'Article 47: The State shall regard it as its primary duty...'
     ],
   };
 

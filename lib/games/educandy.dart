@@ -1,20 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'WebView Example',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       home: const WebViewExample(),
-//     );
-//   }
-// }
 
 class WebViewExample extends StatefulWidget {
   const WebViewExample({super.key});
@@ -61,10 +47,11 @@ class _WebViewExampleState extends State<WebViewExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('WebView Example'),
+        title: const Text('play games'),
       ),
       body:
-      WebViewWidget(controller: _controller),
+      WebViewWidget(controller: _controller,
+      ),
       // Container(
       //   height: 200,
       //   width: 200,

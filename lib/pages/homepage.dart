@@ -15,6 +15,41 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool _isDarkMode = false;
+  String _selectedLanguage = 'English';
+  final List<String> _languages = ['English', 'Marathi', 'Hindi'];
+
+  Widget _buildSectionHeader(String title) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      child: Text(
+        title,
+        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+  Widget _buildLanguageDropdown() {
+    return DropdownButtonFormField<String>(
+      value: _selectedLanguage,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(),
+        filled: true,
+        fillColor: Colors.grey[200],
+        labelText: 'Select Language',
+      ),
+      onChanged: (String? newValue) {
+        setState(() {
+          _selectedLanguage = newValue!;
+        });
+      },
+      items: _languages.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,26 +119,65 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
         title: const Text(
-          "Vidhan",
-          style: TextStyle(
-            color: Color(0xFFFFFBE6),
-            fontWeight: FontWeight.bold,
-          ),
+          "Vidhan",style: TextStyle(
+          color: Color(0xFFFFFBE6),
+          fontWeight: FontWeight.bold,
+        ),
         ),
         actions: [
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.notifications,
-              // Use FontAwesomeIcons if you want different icons
               color: Color(0xFFFFFBE6), // Match the text color for consistency
             ),
             onPressed: () {
               Navigator.pushNamed(context, '/notifications');
             },
           ),
-          SizedBox(width: 16), // Optional spacing between icons
+          PopupMenuButton<String>(
+            onSelected: (String result) {
+              setState(() {
+                _selectedLanguage = result;
+              });
+            },
+            itemBuilder: (BuildContext context) {
+              return _languages.map((String choice) {
+                return PopupMenuItem<String>(
+                  value: choice,
+                  child: Text(choice),
+                );
+              }).toList();
+            },icon: const Icon(
+            Icons.language,
+            color: Color(0xFFFFFBE6),
+          ),
+          ),
+          const SizedBox(width: 10), // Optional spacing between icons
         ],
       ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.brown[400],
+      //   title: const Text(
+      //     "Vidhan",
+      //     style: TextStyle(
+      //       color: Color(0xFFFFFBE6),
+      //       fontWeight: FontWeight.bold,
+      //     ),
+      //   ),
+      //   actions: [
+      //     IconButton(
+      //       icon: Icon(
+      //         Icons.notifications,
+      //         // Use FontAwesomeIcons if you want different icons
+      //         color: Color(0xFFFFFBE6), // Match the text color for consistency
+      //       ),
+      //       onPressed: () {
+      //         Navigator.pushNamed(context, '/notifications');
+      //       },
+      //     ),
+      //     SizedBox(width: 16), // Optional spacing between icons
+      //   ],
+      // ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _showChatBox(context);
@@ -422,7 +496,6 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
-
                 SizedBox(
                   height: 10,
                 ),
@@ -530,7 +603,7 @@ class _HomePageState extends State<HomePage> {
                     onTap: () {
                       Navigator.push(
                           context,
-                          Navigator.pushNamed(context, '/part_4')
+                          Navigator.pushNamed(context, '/part_5')
                               as Route<Object?>);
                     },
                     child: Container(

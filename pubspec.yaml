@@ -38,6 +38,7 @@ dependencies:
   carousel_slider: ^5.0.0
   google_fonts: ^6.2.1
   lottie: ^3.1.2
+  google_sign_in: ^6.2.1
 
   webview_flutter: ^4.9.0
   #  rive: ^0.13.13
@@ -50,10 +51,10 @@ dependencies:
   firebase_core: any
   firebase_auth: any
   google_generative_ai: ^0.4.6
+  cloud_firestore: ^5.4.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  cloud_firestore: ^5.4.0
   firebase_storage: ^12.2.0
   fluttertoast: ^8.2.8
   youtube_player_flutter: ^9.0.3
@@ -94,7 +95,7 @@ flutter:
     - assets/protest.jpg
     - assets/snl.png
     - assets/triangles.png
-    - assets/vectorstock_1014.jpg
+#    - assets/vectorstock_1014.jpg
     - assets/word.png
 
   #   - images/a_dot_ham.jpeg

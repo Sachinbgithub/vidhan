@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:vidhan/pages/userAuth/form_controller_widget.dart';
 import 'package:vidhan/pages/userAuth/signup_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'firebase_auth_services.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -16,6 +18,8 @@ class _LoginPageState extends State<LoginPage> {
   bool _isSigning = false;
 
   final FirebaseAuthService _auth = FirebaseAuthService();
+
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -33,8 +37,10 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/register.png"), // Replace with your image path
-            fit: BoxFit.cover, // Adjust how the image fits (cover, contain, etc.)
+            image: AssetImage("assets/register.png"),
+            // Replace with your image path
+            fit: BoxFit
+                .cover, // Adjust how the image fits (cover, contain, etc.)
           ),
         ),
         child: Stack(
@@ -85,7 +91,9 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: "Password",
                       isPasswordField: true,
                       validator: (value) {
-                        if (value == null || value.isEmpty || value.length < 6) {
+                        if (value == null ||
+                            value.isEmpty ||
+                            value.length < 6) {
                           return 'Password is too short';
                         }
                         return null;
@@ -111,15 +119,51 @@ class _LoginPageState extends State<LoginPage> {
                         child: Center(
                           child: _isSigning
                               ? CircularProgressIndicator(
-                            color: Colors.white,
-                          )
+                                  color: Colors.white,
+                                )
                               : Text(
-                            "Play & Login",
-                            style: TextStyle(
-                              color: Color(0xFFFFF4EA),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 22,
+                                  "Play & Login",
+                                  style: TextStyle(
+                                    color: Color(0xFFFFF4EA),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 22,
+                                  ),
+                                ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+                    GestureDetector(
+                      onTap: _signInWithGoogle,
+                      child: Container(
+                        width: double.infinity,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF004271),
+                          borderRadius: BorderRadius.circular(50),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black45,
+                              blurRadius: 10,
+                              offset: Offset(3, 7),
                             ),
+                          ],
+                        ),
+                        child: const Center(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(FontAwesomeIcons.google),
+                              SizedBox(width: 5,),
+                              Text(
+                                "Signin with google",
+                                style: TextStyle(
+                                  color: Color(0xFFFFF4EA),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 22,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -130,7 +174,7 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         const Text(
                           "New Here?",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.black54),
                         ),
                         const SizedBox(width: 5),
                         GestureDetector(
@@ -139,7 +183,7 @@ class _LoginPageState extends State<LoginPage> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const SignUpPage()),
-                                    (route) => false);
+                                (route) => false);
                           },
                           child: const Text(
                             "Sign Up",
@@ -149,16 +193,27 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                     const SizedBox(height: 30),
-
+                    // ElevatedButton.icon(
+                    //   onPressed: _signInWithGoogle,
+                    //   icon: const Icon(Icons.login),
+                    //   label: const Text("Sign in with Google"),
+                    //   style: ElevatedButton.styleFrom(
+                    //     backgroundColor: Colors.white,
+                    //     foregroundColor: Colors.black,
+                    //     minimumSize: const Size(double.infinity, 50),
+                    //   ),
+                    // ),
                     // Skip Button at the bottom
                     // Skip Button with modified size
                     GestureDetector(
                       onTap: _skipLogin,
                       child: Container(
-                        width: 200,  // Adjust this value to change the width (for example, 200 instead of double.infinity)
-                        height: 45,  // Adjust this value to change the height (for example, 45 instead of 50)
+                        width: 200,
+                        // Adjust this value to change the width (for example, 200 instead of double.infinity)
+                        height: 45,
+                        // Adjust this value to change the height (for example, 45 instead of 50)
                         decoration: BoxDecoration(
-                          color: Colors.orangeAccent,  // Button color
+                          color: Colors.orangeAccent, // Button color
                           borderRadius: BorderRadius.circular(50),
                           boxShadow: [
                             BoxShadow(
@@ -180,7 +235,6 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-
                   ],
                 ),
               ),
@@ -198,8 +252,8 @@ class _LoginPageState extends State<LoginPage> {
     String email = _emailController.text;
     String password = _passwordController.text;
 
-    User? user = await _auth.signInWithEmailandPassword(
-        context, email, password);
+    User? user =
+        await _auth.signInWithEmailandPassword(context, email, password);
 
     setState(() {
       _isSigning = false;
@@ -218,4 +272,24 @@ class _LoginPageState extends State<LoginPage> {
   void _skipLogin() {
     Navigator.pushNamedAndRemoveUntil(context, '/nav', (route) => false);
   }
+
+// Sign in with Google method
+Future<void> _signInWithGoogle() async {
+  try {
+    final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+    await googleUser!.authentication;
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+    await FirebaseAuth.instance.signInWithCredential(credential);
+    // Navigate to the next screen or perform other actions after successful sign-in
+    Navigator.pushNamedAndRemoveUntil(context, '/nav', (route) => false);
+  } catch (e) {
+    print(e);
+    // Handle sign-in errors
+  }
+}
 }

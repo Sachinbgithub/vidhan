@@ -16,6 +16,7 @@ import 'package:vidhan/pages/userAuth/login_page.dart';
 import 'package:vidhan/utility/bottom_nav.dart';
 
 import 'content/principles/part_4.dart';
+import 'content/principles/part_5.dart';
 import 'games/educandy.dart';
 
 void main() async {
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
         '/snake': (context) => const GameHome(),
         '/edu': (context) => const WebViewExample(),
         '/part_4': (context) => DutiesAndPrinciplesPage(),
+        '/part_5': (context) => UnionPage(),
         '/facts': (context) =>  Facts(),
         '/part_3': (context) => RightsPage(),
         '/web': (context) => const WebViewExample(),
@@ -77,7 +79,7 @@ class _SplashScreenWrapperState extends State<SplashScreenWrapper> {
   void initState() {
     super.initState();
     // Simulate splash screen duration
-    Timer(const Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 3), () {
       // Navigate based on authentication state
       FirebaseAuth.instance.authStateChanges().listen((User? user) {
         if (user != null) {
