@@ -154,7 +154,9 @@ class _LoginPageState extends State<LoginPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(FontAwesomeIcons.google),
-                              SizedBox(width: 5,),
+                              SizedBox(
+                                width: 5,
+                              ),
                               Text(
                                 "Signin with google",
                                 style: TextStyle(
@@ -174,9 +176,9 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         const Text(
                           "New Here?",
-                          style: TextStyle(color: Colors.black54),
+                          style: TextStyle( fontSize: 20, color: Colors.black54),
                         ),
-                        const SizedBox(width: 5),
+                        const SizedBox(width: 15),
                         GestureDetector(
                           onTap: () {
                             Navigator.pushAndRemoveUntil(
@@ -187,7 +189,7 @@ class _LoginPageState extends State<LoginPage> {
                           },
                           child: const Text(
                             "Sign Up",
-                            style: TextStyle(color: Colors.orangeAccent),
+                            style: TextStyle( fontSize: 20, color: Colors.white),
                           ),
                         ),
                       ],
@@ -274,22 +276,22 @@ class _LoginPageState extends State<LoginPage> {
   }
 
 // Sign in with Google method
-Future<void> _signInWithGoogle() async {
-  try {
-    final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
-    await googleUser!.authentication;
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
-    );
-    await FirebaseAuth.instance.signInWithCredential(credential);
-    // Navigate to the next screen or perform other actions after successful sign-in
-    Navigator.pushNamedAndRemoveUntil(context, '/nav', (route) => false);
-  } catch (e) {
-    print(e);
-    // Handle sign-in errors
+  Future<void> _signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
+      await googleUser!.authentication;
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+      await FirebaseAuth.instance.signInWithCredential(credential);
+      // Navigate to the next screen or perform other actions after successful sign-in
+      Navigator.pushNamedAndRemoveUntil(context, '/nav', (route) => false);
+    } catch (e) {
+      print(e);
+      // Handle sign-in errors
+    }
   }
-}
 }

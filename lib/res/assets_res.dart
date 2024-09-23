@@ -20,8 +20,8 @@ class AssetsRes {
   static const String IMG3 = 'assets/img3.jpg';
   static const String PART_IV = 'assets/part_IV.jpg';
   static const String PROTEST = 'assets/protest.jpg';
+  static const String REGISTERRR = 'assets/registerrr.png';
   static const String SNL = 'assets/snl.png';
   static const String TRIANGLES = 'assets/triangles.png';
-  static const String VECTORSTOCK_1014 = 'assets/vectorstock_1014.jpg';
   static const String WORD = 'assets/word.png';
 }
