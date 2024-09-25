@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -168,7 +169,10 @@ class DutyCard extends StatelessWidget {
                       color: Colors.white,
                       fontSize: 18,
                       fontWeight: FontWeight.bold)),
-              const SizedBox(height: 8),
+              const SizedBox(
+                width: double.infinity,
+                height: 8,
+              ),
               Text(description,
                   style:  TextStyle(fontSize: 14, color: Colors.white70),
               ),],
@@ -223,32 +227,94 @@ class ArticleDetailPage extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 20),
-                ...articles.map((subArticle) => Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.amber[200],
-                      borderRadius: BorderRadius.circular(8),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.3),
-                          spreadRadius: 1,
-                          blurRadius: 3,
-                          offset: const Offset(0, 1),
-                        ),
-                      ],
+
+
+                // const SizedBox(height: 20),
+                // ...articles.map((subArticle) => Padding(
+                //   padding: const EdgeInsets.symmetric(vertical: 8.0),
+                //   child: Container(
+                //     decoration: BoxDecoration(
+                //       color: Colors.amber[200],
+                //       borderRadius: BorderRadius.circular(8),
+                //       boxShadow: [
+                //         BoxShadow(
+                //           color: Colors.grey.withOpacity(0.3),
+                //           spreadRadius: 1,
+                //           blurRadius: 3,
+                //           offset: const Offset(0, 1),
+                //         ),
+                //       ],
+                //     ),
+                //     child: Padding(
+                //       padding: const EdgeInsets.all(16.0),
+                //       child: Text(
+                //         subArticle,
+                //         style: const TextStyle(fontSize: 16, color: Colors.black54, fontWeight: FontWeight.bold),
+                //       ),
+                //     ),
+                //   ),
+                // ))
+                //     .toList(),
+
+
+              const SizedBox(height: 20),
+              ...articles.map((subArticle) => Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.amber[200],
+            borderRadius: BorderRadius.circular(8),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.3),
+                spreadRadius: 1,
+                blurRadius: 3,
+                offset: const Offset(0, 1),
+              ),
+            ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column( // Changed to Column to include buttons
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  subArticle,
+                  style: const TextStyle(fontSize: 16, color: Colors.black54, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 10), // Space between text and buttons
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween, // Space out buttons
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        // Handle Read More action
+                        print('Read More tapped for $subArticle');
+                      },
+                      child: const Text('AI'),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        subArticle,
-                        style: const TextStyle(fontSize: 16, color: Colors.black54, fontWeight: FontWeight.bold),
-                      ),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Handle Share action
+                        print('Share tapped for $subArticle');
+                      },
+                      child: const Text('YouTube'),
                     ),
-                  ),
-                ))
-                    .toList(),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Handle Bookmark action
+                        print('Bookmark tapped for $subArticle');
+                      },
+                      child: const Text('Quiz'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      )).toList(),
+
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {},
@@ -262,8 +328,7 @@ class ArticleDetailPage extends StatelessWidget {
                   ),
                   child: Icon(Icons.voice_chat),
                 ),
-              ],
-            ),
+            ]),
           ),
         ),
       ),
