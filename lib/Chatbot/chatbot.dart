@@ -74,14 +74,16 @@ class _Chat_BotState extends State<Chat_Bot> {
                 itemCount: _chatSession.history.length,
                 itemBuilder: (context, index) {
                   final Content content = _chatSession.history.toList()[index];
-                  final text = content.parts.whereType<TextPart>()
+                  final text = content.parts
+                      .whereType<TextPart>()
                       .map<String>((e) => e.text)
                       .join('');
                   return MsgWidget(
                     text: text,
                     isFromUser: content.role == 'user',
-                    userColor: Color(0xFF6200EE), // Custom purple for user messages
-                    botColor: Color(0xFF03DAC6),  // Custom teal for bot messages
+                    userColor: Color(0xFF6200EE),
+                    // Custom purple for user messages
+                    botColor: Color(0xFF03DAC6), // Custom teal for bot messages
                   );
                 },
               ),

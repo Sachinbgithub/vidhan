@@ -33,7 +33,29 @@ class _YoutubeVideoPlayerState extends State<YoutubeVideoPlayer> {
     super.dispose();
   }
 
-
+  void showVideoDialog() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Watch Video'),
+        content: Container(
+          height: 300,
+          child: YoutubePlayer(
+            controller: _controller,
+            showVideoProgressIndicator: true,
+          ),
+        ),
+        actions: [
+          TextButton(
+            child: Text('Close'),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

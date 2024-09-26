@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:vidhan/games/TryScreen.dart';
 
@@ -11,6 +13,17 @@ class ResultScreen extends StatelessWidget {
     super.key,
     required this.score,
   });
+  Future<void> updateUserScore(int newScore) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
+        'uid': user.uid,
+        'username': user.displayName ?? 'Anonymous',
+        'score': newScore,
+      }, SetOptions(merge: true));
+    }
+  }
+
 
   final int score;
 
@@ -44,6 +57,7 @@ class ResultScreen extends StatelessWidget {
               Column(
                 children: [
                   Text(
+                  // updateUserScore(score) as String,
                     score.toString(),
                     style: const TextStyle(fontSize: 80),
                   ),
@@ -55,6 +69,7 @@ class ResultScreen extends StatelessWidget {
                 ],
               ),
             ],
+
             // }
           ),
           SizedBox(
@@ -94,3 +109,4 @@ class ResultScreen extends StatelessWidget {
     );
   }
 }
+

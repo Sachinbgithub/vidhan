@@ -157,6 +157,7 @@ class DutyCard extends StatelessWidget {
       Card(
         color: Colors.amber,
         elevation: 100,
+        shadowColor: Colors.black38,
         margin: const EdgeInsets.symmetric(vertical: 8),
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -168,7 +169,7 @@ class DutyCard extends StatelessWidget {
                       color: Colors.white,
                       fontSize: 18,
                       fontWeight: FontWeight.bold)),
-              const SizedBox(height: 8),
+               SizedBox(height: 8, width: double.infinity,),
               Text(description,
                   style:  TextStyle(fontSize: 14, color: Colors.white70),
               ),],
