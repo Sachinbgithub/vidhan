@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vidhan/content/facts.dart';
-import 'package:vidhan/content/principles/part_3.dart';
+import 'package:vidhan/content/principles/temp_part_III.dart';
 
 import 'package:vidhan/content/principles/see_all.dart';
 import 'package:vidhan/games/quize/screens/quiz_screen.dart';
@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
         '/part_4': (context) => DutiesAndPrinciplesPage(),
         '/part_5': (context) => UnionPage(),
         '/facts': (context) =>  Facts(),
-        '/part_3': (context) => RightsPage(),
+        '/part_3': (context) => RightsPage2(),
         '/web': (context) => const WebViewExample(),
         '/seeall': (context) => const SeeAll(),
         // '/profile': (context) => const ProfilePage(),
@@ -81,7 +81,7 @@ class _SplashScreenWrapperState extends State<SplashScreenWrapper> {
   void initState() {
     super.initState();
     // Simulate splash screen duration
-    Timer(const Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 5), () {
       // Navigate based on authentication state
       FirebaseAuth.instance.authStateChanges().listen((User? user) {
         if (user != null) {

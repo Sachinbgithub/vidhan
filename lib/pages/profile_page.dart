@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage2 extends StatelessWidget {
   final String name;
   final int age;
   final String profilePictureUrl;
   final double progress;
 
   // Constructor to receive data
-  ProfilePage({
+  ProfilePage2({
     required this.name,
     required this.age,
     required this.profilePictureUrl,

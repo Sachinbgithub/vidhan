@@ -13,18 +13,20 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue[50],
       appBar: AppBar(
         title: Text('Settings'),
         centerTitle: true,
+        backgroundColor: Colors.blue[50],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
             // Change Language Section
-            _buildSectionHeader('Change Language'),
-            _buildLanguageDropdown(),
-            SizedBox(height: 20),
+            // _buildSectionHeader('Change Language'),
+            // _buildLanguageDropdown(),
+            // SizedBox(height: 20),
 
             // Change Theme Section
             _buildSectionHeader('Change Theme'),

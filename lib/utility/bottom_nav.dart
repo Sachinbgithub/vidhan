@@ -5,6 +5,10 @@ import 'package:vidhan/pages/profile_page.dart';
 import 'package:vidhan/pages/settings_page.dart';
 import 'package:vidhan/pages/test.dart';
 
+import '../pages/temp_profile.dart';
+import '../pages/userAuth/leaderboard.dart';
+import '../pages/userAuth/temp_leader.dart';
+
 class BottomNav extends StatefulWidget {
   const BottomNav({Key? key}) : super(key: key);
 
@@ -36,14 +40,18 @@ class _BottomNavState extends State<BottomNav> {
         },
         children: [
           HomePage(),
-          ProfilePage(
-            name: 'sachin',
-            age: 22,
-            profilePictureUrl:
-                'https://i.pinimg.com/736x/9f/9f/bb/9f9fbb3b96703d08b68aaa8c34aba638.jpg',
-            progress: 75,
-          ),
-          ProfilePage2(),
+          // ProfilePage(
+          //   name: 'sachin',
+          //   age: 22,
+          //   profilePictureUrl:
+          //       'https://i.pinimg.com/736x/9f/9f/bb/9f9fbb3b96703d08b68aaa8c34aba638.jpg',
+          //   progress: 75,
+          // ),
+          ProfilePageLeaderboardStyle(),
+          // LeaderboardPage(),
+          // EnhancedLeaderboardPage(),
+          LeaderboardWithDummyRanks(),
+          // ProfilePage2(),
           SettingsPage(),
         ],
       ),
@@ -56,9 +64,10 @@ class _BottomNavState extends State<BottomNav> {
           Icon(Icons.bar_chart, size: 30),
           Icon(Icons.settings, size: 30),
         ],
-        color: Color(0xFFA1887F),
+        color: Colors.blue.shade800,
         buttonBackgroundColor: Color(0xFFF8EDE3),
-        backgroundColor: Color(0xFF8D493A),
+        backgroundColor: Colors.blue,
+        // backgroundColor: Color(0xFF8D493A),
         animationCurve: Curves.easeInOut,
         animationDuration: const Duration(milliseconds: 600),
         onTap: onTapped,

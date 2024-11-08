@@ -53,9 +53,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[200],
+      backgroundColor: Colors.blue[50],
+      // backgroundColor: Colors.brown[200],
       drawer: Drawer(
-        backgroundColor: Color(0xFFFEECB3),
+        backgroundColor:Colors.blue.shade50,
+        // Color(0xFFFEECB3),
         child: Column(
           children: [
             DrawerHeader(
@@ -66,18 +68,20 @@ class _HomePageState extends State<HomePage> {
                   textStyle: TextStyle(
                     fontSize: 40, // Adjust font size as needed
                     fontWeight: FontWeight.w500,
-                    color: Color(0xFFA04747), // Adjust text color as needed
+                    color: Colors.black54,
+                    // color: Color(0xFFA04747), // Adjust text color as needed
                   ),
                 ),
               ),
             ),
 
             ListTile(
-              leading: const Icon(Icons.home, color: Color(0xFFA04747)),
+              leading: const Icon(Icons.home, color: Colors.black),
               title: const Text(
                 "H O M E",
                 style: TextStyle(
-                  color: Color(0xFFA04747),
+                  // color: Color(0xFFA04747),
+                  color: Colors.black54,
                   fontWeight: FontWeight.bold, // Set the color you want here
                 ),
               ),
@@ -86,11 +90,11 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.settings, color: Color(0xFFA04747)),
+              leading: const Icon(Icons.settings, color: Colors.black),
               title: const Text(
                 "S E T T I N G",
                 style: TextStyle(
-                  color: Color(0xFFA04747),
+                  color: Colors.black54,
                   fontWeight: FontWeight.bold, // Set the color you want here
                 ),
               ),
@@ -99,11 +103,11 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.logout, color: Color(0xFFA04747)),
+              leading: const Icon(Icons.logout, color: Colors.black),
               title: const Text(
                 "S I G N O U T",
                 style: TextStyle(
-                  color: Color(0xFFA04747),
+                  color: Colors.black54,
                   fontWeight: FontWeight.bold, // Set the color you want here
                 ),
               ),
@@ -117,7 +121,9 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: Colors.brown[400],
+        // backgroundColor: Colors.brown[400],
+        // backgroundColor: Color(0xFF8D493A),
+        backgroundColor: Colors.blue[800],
         title: const Text(
           "Vidhan",style: TextStyle(
           color: Color(0xFFFFFBE6),
@@ -279,6 +285,7 @@ class _HomePageState extends State<HomePage> {
                 //     ),
                 //   ],
                 // ),
+                //Daily Quiz
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -332,6 +339,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
+                //Do you know
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -385,6 +393,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
+               //Games
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -658,7 +667,7 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return Chat_Bot();
+        return const Chat_Bot();
         // return
         // AlertDialog(
         //   title: Text("Ask a Question"),
