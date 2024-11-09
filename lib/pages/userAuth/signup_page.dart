@@ -34,7 +34,7 @@ class _SignUpPageState extends State<SignUpPage> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/registerrr.png"),
+            image: AssetImage(""),// add assets/registerrr.png here
             fit: BoxFit.cover,
           ),
         ),

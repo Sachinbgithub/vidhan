@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomePage(),
         '/login': (context) => const LoginPage(),
         '/quize': (context) => const QuizScreen(),
-        '/Pquize': (context) => const PrinQuiz(),
+        // '/Pquize': (context) => const PrinQuiz(),
         '/snake': (context) => const GameHome(),
         '/edu': (context) => const WebViewExample(),
         '/part_4': (context) => DutiesAndPrinciplesPage(),

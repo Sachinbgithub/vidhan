@@ -37,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/register.png"),
+            image: AssetImage(""), // add registerrr.png here
             // Replace with your image path
             fit: BoxFit
                 .cover, // Adjust how the image fits (cover, contain, etc.)
