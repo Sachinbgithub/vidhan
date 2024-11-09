@@ -172,9 +172,11 @@ class LeaderboardWithDummyRanks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue[50],
       appBar: AppBar(
-        title: const Text('Leaderboard'),
-        backgroundColor: Colors.blue[800],
+
+        title: Center(child: const Text('Leaderboard')),
+        backgroundColor: Colors.blue[50],
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
@@ -224,12 +226,12 @@ class LeaderboardWithDummyRanks extends StatelessWidget {
 
   List<Map<String, dynamic>> _combineWithDummyUsers(List<QueryDocumentSnapshot> firebaseUsers) {
     List<Map<String, dynamic>> dummyUsers = [
-      {'uid': 'dummy1', 'username': 'Sachin', 'score': 9985, 'isDummy': true},
-      {'uid': 'dummy2', 'username': 'Sufiyan', 'score': 7794, 'isDummy': true},
-      {'uid': 'dummy3', 'username': 'Vaibhav', 'score': 7877, 'isDummy': true},
-      {'uid': 'dummy4', 'username': 'Chinmayee', 'score': 5566, 'isDummy': true},
-      {'uid': 'dummy5', 'username': 'Hrishikesh', 'score': 2285, 'isDummy': true},
-      {'uid': 'dummy5', 'username': 'Rohit', 'score': 2355, 'isDummy': true},
+      {'uid': 'dummy1', 'username': 'Sachin', 'score': 1250, 'isDummy': true},
+      {'uid': 'dummy2', 'username': 'Sufiyan', 'score': 1000, 'isDummy': true},
+      {'uid': 'dummy3', 'username': 'Vaibhav', 'score': 900, 'isDummy': true},
+      {'uid': 'dummy4', 'username': 'Chinmayee', 'score': 850, 'isDummy': true},
+      {'uid': 'dummy5', 'username': 'Hrishikesh', 'score': 200, 'isDummy': true},
+      {'uid': 'dummy5', 'username': 'Rohit', 'score': 800, 'isDummy': true},
     ];
 
     List<Map<String, dynamic>> combinedUsers = firebaseUsers.map((doc) => doc.data() as Map<String, dynamic>).toList();
