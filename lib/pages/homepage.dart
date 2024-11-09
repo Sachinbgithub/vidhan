@@ -549,10 +549,10 @@ class _HomePageState extends State<HomePage> {
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.red,
+                        color:Color(0xFFACB3D5),
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
-                          image: AssetImage('assets/img_9.png'),
+                          image: AssetImage('assets/partIII.png'),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -571,7 +571,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Text(
                                   "Part III: \nBasic Human Rights & Duties",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
                                   ),
@@ -598,7 +598,7 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                         image: const DecorationImage(
                           filterQuality: FilterQuality.medium,
-                          image: AssetImage('assets/img_10.png'),
+                          image: AssetImage('assets/img.png'),
                           fit: BoxFit.cover,
                         ),
                         // color: Colors.red,
@@ -621,7 +621,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Text(
                                   "Part IV: \nDirective Principles of State Policy",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
                                   ),
@@ -671,7 +671,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Text(
                                   "Part V: \nThe Union",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
                                   ),

@@ -136,7 +136,8 @@ class _ProfilePageLeaderboardStyleState extends State<ProfilePageLeaderboardStyl
       width: 160,
       height: 100,
       decoration: BoxDecoration(
-        color: Colors.blue[100],
+        // color: Colors.blue[100],
+        color: Color(0xFFD5E3FF),
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -176,7 +177,8 @@ class _ProfilePageLeaderboardStyleState extends State<ProfilePageLeaderboardStyl
       width: double.infinity,
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.blue[100],
+        // color: Colors.blue[100],
+        color: Color(0xFFD5E3FF),
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -216,7 +218,8 @@ class _ProfilePageLeaderboardStyleState extends State<ProfilePageLeaderboardStyl
       width: double.infinity,
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.blue[100],
+        // color: Colors.blue[100],
+        color: Color(0xFFD5E3FF),
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
