@@ -12,7 +12,7 @@ class _ProfilePageLeaderboardStyleState extends State<ProfilePageLeaderboardStyl
   String profilePictureUrl = 'assets/logo.png';
   int rewardPoints = 1250;
   int dailyStreak = 7;
-  List<String> badges = ['Rookie', 'Quiz Master', 'Streak Champion'];
+  // List<String> badges = ['Rookie', 'Quiz Master', 'Streak Champion'];
 
   final TextEditingController _nameController = TextEditingController();
 
@@ -56,8 +56,8 @@ class _ProfilePageLeaderboardStyleState extends State<ProfilePageLeaderboardStyl
               _buildRewardPointsCard(),
               SizedBox(height: 20),
               _buildDailyStreakCard(),
-              SizedBox(height: 20),
-              _buildBadgesSection(),
+              // SizedBox(height: 20),
+              // _buildBadgesSection(),
             ],
           ),
         ),
@@ -110,13 +110,13 @@ class _ProfilePageLeaderboardStyleState extends State<ProfilePageLeaderboardStyl
           ),
         ),
         SizedBox(height: 10),
-        Text(
-          'Flutter Developer | Tech Enthusiast',
-          style: TextStyle(
-            fontSize: 16,
-            color: Colors.grey[600],
-          ),
-        ),
+        // Text(
+        //   'Flutter Developer | Tech Enthusiast',
+        //   style: TextStyle(
+        //     fontSize: 16,
+        //     color: Colors.grey[600],
+        //   ),
+        // ),
       ],
     );
   }
@@ -136,11 +136,11 @@ class _ProfilePageLeaderboardStyleState extends State<ProfilePageLeaderboardStyl
       width: 160,
       height: 100,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.blue[100],
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
+            color: Colors.black.withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 5,
             offset: Offset(0, 3),
@@ -163,7 +163,7 @@ class _ProfilePageLeaderboardStyleState extends State<ProfilePageLeaderboardStyl
             label,
             style: TextStyle(
               fontSize: 14,
-              color: Colors.grey[600],
+              color: Colors.black,
             ),
           ),
         ],
@@ -176,11 +176,11 @@ class _ProfilePageLeaderboardStyleState extends State<ProfilePageLeaderboardStyl
       width: double.infinity,
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.blue[100],
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
+            color: Colors.black.withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 5,
             offset: Offset(0, 3),
@@ -194,7 +194,7 @@ class _ProfilePageLeaderboardStyleState extends State<ProfilePageLeaderboardStyl
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Colors.blue[800],
+              color: Colors.black,
             ),
           ),
           SizedBox(height: 10),
@@ -216,11 +216,11 @@ class _ProfilePageLeaderboardStyleState extends State<ProfilePageLeaderboardStyl
       width: double.infinity,
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.blue[100],
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
+            color: Colors.black.withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 5,
             offset: Offset(0, 3),
@@ -234,7 +234,7 @@ class _ProfilePageLeaderboardStyleState extends State<ProfilePageLeaderboardStyl
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Colors.blue[800],
+              color: Colors.black,
             ),
           ),
           SizedBox(height: 10),
@@ -258,27 +258,28 @@ class _ProfilePageLeaderboardStyleState extends State<ProfilePageLeaderboardStyl
     );
   }
 
-  Widget _buildBadgesSection() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Badges',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.blue[800],
-          ),
-        ),
-        SizedBox(height: 10),
-        Wrap(
-          spacing: 10,
-          runSpacing: 10,
-          children: badges.map((badge) => _buildBadgeChip(badge)).toList(),
-        ),
-      ],
-    );
-  }
+  //Badges widget
+  // Widget _buildBadgesSection() {
+  //   return Column(
+  //     crossAxisAlignment: CrossAxisAlignment.start,
+  //     children: [
+  //       Text(
+  //         'Badges',
+  //         style: TextStyle(
+  //           fontSize: 20,
+  //           fontWeight: FontWeight.bold,
+  //           color: Colors.blue[800],
+  //         ),
+  //       ),
+  //       SizedBox(height: 10),
+  //       Wrap(
+  //         spacing: 10,
+  //         runSpacing: 10,
+  //         // children: badges.map((badge) => _buildBadgeChip(badge)).toList(),
+  //       ),
+  //     ],
+  //   );
+  // }
 
   Widget _buildBadgeChip(String badge) {
     return Chip(

@@ -300,7 +300,7 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
-                          image: AssetImage('assets/img_6.png'),
+                          image: AssetImage('assets/img_15.png'),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -343,14 +343,14 @@ class _HomePageState extends State<HomePage> {
                   ),
 
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Container(
-                    height: 30,
-                    width: double.infinity,
-                    decoration: BoxDecoration(color: Colors.blue),
-                  ),
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(horizontal: 10),
+                //   child: Container(
+                //     height: 30,
+                //     width: double.infinity,
+                //     decoration: BoxDecoration(color: Colors.blue),
+                //   ),
+                // ),
 
                 //Do you know
                 Padding(
@@ -367,8 +367,8 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         image: const DecorationImage(
-                          image: AssetImage('assets/img_7.png'),
-                          // Replace with your background image path
+                          image: AssetImage('assets/img_14.png'),
+
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -428,8 +428,7 @@ class _HomePageState extends State<HomePage> {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   image: const DecorationImage(
-                                    image: AssetImage('assets/img_1.png'),
-                                    // Replace with your background image path
+                                    image: AssetImage('assets/judge.png'),
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -456,9 +455,9 @@ class _HomePageState extends State<HomePage> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
-                                  color: Colors.black38,
+                                  // color: Colors.black38,
                                   image: const DecorationImage(
-                                    image: AssetImage('assets/img.png'),
+                                    image: AssetImage('assets/run2.png'),
                                     // Replace with your background image path
                                     fit: BoxFit.cover,
                                   ),
