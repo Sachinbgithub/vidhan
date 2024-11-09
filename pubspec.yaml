@@ -84,6 +84,8 @@ flutter:
   assets:
     - assets/
 #    - assets/Const.jpg
+    - assets/sounds/correct.wav
+    - assets/sounds/wrong.wav
     - assets/bg1.jpeg
 #    - assets/const2.jpg
 #    - assets/court.jpg
@@ -95,7 +97,7 @@ flutter:
     - assets/img3.jpg
 #    - assets/part_IV.jpg
 #    - assets/protest.jpg
-#    - assets/img.png
+#    - assets/courtbg.png
 #    - assets/snl.png
 #    - assets/triangles.png
 #    - assets/word.png
