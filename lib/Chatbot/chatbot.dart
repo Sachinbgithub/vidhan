@@ -81,9 +81,9 @@ class _Chat_BotState extends State<Chat_Bot> {
                   return MsgWidget(
                     text: text,
                     isFromUser: content.role == 'user',
-                    userColor: Color(0xFF6200EE),
+                    userColor: Color(0xFF9E9D9F),
                     // Custom purple for user messages
-                    botColor: Color(0xFF03DAC6), // Custom teal for bot messages
+                    botColor: Color(0xFFE1E1F6), // Custom teal for bot messages
                   );
                 },
               ),

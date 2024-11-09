@@ -234,7 +234,7 @@ class _HomePageState extends State<HomePage> {
       children: [
         _buildGameCard('Court', 'assets/court2.jpg',
             () => Navigator.pushNamed(context, '/facts')),
-        _buildGameCard('Snake & Ladder', 'assets/snl.png',
+        _buildGameCard('Snake & Ladder', 'assets/img.png',
             () => Navigator.pushNamed(context, '/snake')),
         _buildGameCard('Word Game', 'assets/word.png',
             () => Navigator.pushNamed(context, '/web')),

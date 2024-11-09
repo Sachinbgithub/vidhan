@@ -52,59 +52,62 @@ class _QuizScreenState extends State<QuizScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(
-              question.question,
-              style: const TextStyle(
-                fontSize: 21,
+        child: ListView(
+          children: [Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                question.question,
+                style: const TextStyle(
+                  fontSize: 21,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: question.options.length,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: selectedAnswerIndex == null
-                      ? () => pickAnswer(index)
-                      : null,
-                  child: AnswerCard(
-                    currentIndex: index,
-                    question: question.options[index],
-                    isSelected: selectedAnswerIndex == index,
-                    selectedAnswerIndex: selectedAnswerIndex,
-                    correctAnswerIndex: question.correctAnswerIndex,
-                  ),
-                );
-              },
-            ),
-            // Next Button
-            isLastQuestion
-                ? RectangularButton(
-                    onPressed: () {
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(
-                          builder: (_) => ResultScreen(
-                            score: score,
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: question.options.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: selectedAnswerIndex == null
+                        ? () => pickAnswer(index)
+                        : null,
+                    child: AnswerCard(
+                      currentIndex: index,
+                      question: question.options[index],
+                      isSelected: selectedAnswerIndex == index,
+                      selectedAnswerIndex: selectedAnswerIndex,
+                      correctAnswerIndex: question.correctAnswerIndex,
+                    ),
+                  );
+                },
+              ),
+              // Next Button
+              isLastQuestion
+                  ? RectangularButton(
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (_) => ResultScreen(
+                              score: score,
+                            ),
                           ),
-                        ),
-                      );
-                    },
-                    label: 'Finish',
-                  )
-                : RectangularButton(
-                    onPressed:
-                        selectedAnswerIndex != null ? goToNextQuestion : null,
-                    label: 'Next',
-                  ),
-                RectangularButton(
-                    onPressed:
-                        selectedAnswerIndex == null ? goToPrevQuestion : null,
-                    label: 'previous'
-      ),
-          ],
+                        );
+                      },
+                      label: 'Finish',
+                    )
+                  : RectangularButton(
+                      onPressed:
+                          selectedAnswerIndex != null ? goToNextQuestion : null,
+                      label: 'Next',
+                    ),
+                  RectangularButton(
+                      onPressed:
+                          selectedAnswerIndex == null ? goToPrevQuestion : null,
+                      label: 'previous'
+                ),
+            ],
+          ),
+        ],
         ),
       ),
     );

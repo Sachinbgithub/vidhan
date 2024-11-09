@@ -18,7 +18,7 @@ class ProfilePage2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFAF3F3), // Background color for the profile page
+      backgroundColor: Colors.blue[50],
       appBar: AppBar(
         backgroundColor: Color(0xFF8D493A), // AppBar color
         title: Text(

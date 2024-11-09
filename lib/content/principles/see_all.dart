@@ -31,7 +31,7 @@ class _SeeAllState extends State<SeeAll> {
                     color: Colors.red,
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
-                      image: AssetImage('assets/protest.jpg'),
+                      image: AssetImage('assets/img_9.png'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -77,7 +77,7 @@ class _SeeAllState extends State<SeeAll> {
                   decoration: BoxDecoration(
                     image: const DecorationImage(
                       filterQuality: FilterQuality.medium ,
-                      image: AssetImage('assets/part_IV.jpg'),
+                      image: AssetImage('assets/img_10.png'),
                       fit: BoxFit.cover,
                     ),
                     // color: Colors.red,
@@ -126,7 +126,7 @@ class _SeeAllState extends State<SeeAll> {
                   decoration: BoxDecoration(
                     image: const DecorationImage(
                       filterQuality: FilterQuality.medium ,
-                      image: AssetImage('assets/crowd.jpg'),
+                      image: AssetImage('assets/img_11.png'),
                       fit: BoxFit.cover,
                     ),
                     // color: Colors.red,
@@ -166,6 +166,5 @@ class _SeeAllState extends State<SeeAll> {
         ),
       ),
     );
-
   }
 }

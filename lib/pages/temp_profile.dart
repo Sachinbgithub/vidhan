@@ -27,7 +27,7 @@ class _ProfilePageLeaderboardStyleState extends State<ProfilePageLeaderboardStyl
     return Scaffold(
       backgroundColor: Colors.blue[50],
       appBar: AppBar(
-        backgroundColor: Colors.blue[800],
+        backgroundColor: Colors.blue[50],
         title: Text(
           'Profile',
           style: TextStyle(

@@ -363,6 +363,10 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
                                         //     ), ),
                                         ElevatedButton(
                                           onPressed: () {
+                                            Navigator.push(
+                                                context,
+                                                Navigator.pushNamed(context, '/quize')
+                                                as Route<Object?>);
                                             // Handle Bookmark action
                                             print(
                                                 'Bookmark tapped for $subArticle');

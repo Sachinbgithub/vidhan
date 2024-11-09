@@ -123,10 +123,10 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         // backgroundColor: Colors.brown[400],
         // backgroundColor: Color(0xFF8D493A),
-        backgroundColor: Colors.blue[800],
+        backgroundColor: Colors.blue[50],
         title: const Text(
           "Vidhan",style: TextStyle(
-          color: Color(0xFFFFFBE6),
+          color: Color(0xFF000000),
           fontWeight: FontWeight.bold,
         ),
         ),
@@ -134,7 +134,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(
               Icons.notifications,
-              color: Color(0xFFFFFBE6), // Match the text color for consistency
+              color: Colors.blue, // Match the text color for consistency
             ),
             onPressed: () {
               Navigator.pushNamed(context, '/notifications');
@@ -155,7 +155,7 @@ class _HomePageState extends State<HomePage> {
               }).toList();
             },icon: const Icon(
             Icons.language,
-            color: Color(0xFFFFFBE6),
+            color: Colors.blue,
           ),
           ),
           const SizedBox(width: 10), // Optional spacing between icons
@@ -288,7 +288,7 @@ class _HomePageState extends State<HomePage> {
                 //Daily Quiz
                 Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      const EdgeInsets.symmetric(horizontal: 10,),
                   child: GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -300,8 +300,7 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
-                          image: AssetImage('assets/const2.jpg'),
-                          // Replace with your background image path
+                          image: AssetImage('assets/img_6.png'),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -312,13 +311,14 @@ class _HomePageState extends State<HomePage> {
                           alignment: Alignment.centerLeft,
                           width: double.infinity,
                           height: 100,
+
                           child: const Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
                                 "Daily Quiz",
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black87,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
                                 ),
@@ -328,17 +328,30 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 "10 questions",
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black54,
                                   fontSize: 16,
                                 ),
                               ),
+
                             ],
                           ),
                         ),
                       ),
                     ),
+
+
+                  ),
+
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Container(
+                    height: 30,
+                    width: double.infinity,
+                    decoration: BoxDecoration(color: Colors.blue),
                   ),
                 ),
+
                 //Do you know
                 Padding(
                   padding:
@@ -354,7 +367,7 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         image: const DecorationImage(
-                          image: AssetImage('assets/Const.jpg'),
+                          image: AssetImage('assets/img_7.png'),
                           // Replace with your background image path
                           fit: BoxFit.cover,
                         ),
@@ -372,7 +385,7 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 "Did you know?",
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
                                 ),
@@ -382,7 +395,7 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 "13 may - 19 may",
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black54,
                                   fontSize: 16,
                                 ),
                               ),
@@ -401,48 +414,59 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              Navigator.pushNamed(context, '/facts')
-                                  as Route<Object?>);
+                          // Navigator.push(
+                          //     context,
+                          //     Navigator.pushNamed(context, '/facts')
+                          //         as Route<Object?>);
                         },
-                        child: Container(
-                          height: 100,
-                          width: 100,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: const DecorationImage(
-                                image: AssetImage('assets/court2.jpg'),
-                                // Replace with your background image path
-                                fit: BoxFit.cover,
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 100,
+                              width: 100,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: const DecorationImage(
+                                    image: AssetImage('assets/img_1.png'),
+                                    // Replace with your background image path
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
+
                             ),
-                          ),
+                            Text("Court Room", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15 ),)
+                          ],
                         ),
                       )  ,
                       Spacer(),
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              Navigator.pushNamed(context, '/snake')
-                                  as Route<Object?>);
+                          // Navigator.push(
+                          //     context,
+                          //     Navigator.pushNamed(context, '/snake')
+                          //         as Route<Object?>);
                         },
-                        child: Container(
-                          height: 100,
-                          width: 100,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.black38,
-                              image: const DecorationImage(
-                                image: AssetImage('assets/snl.png'),
-                                // Replace with your background image path
-                                fit: BoxFit.cover,
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 100,
+                              width: 100,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.black38,
+                                  image: const DecorationImage(
+                                    image: AssetImage('assets/img.png'),
+                                    // Replace with your background image path
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
+                            Text("Vidhan Run", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15 ),)
+                          ],
                         ),
                       ),
                       Spacer(),
@@ -453,20 +477,25 @@ class _HomePageState extends State<HomePage> {
                               Navigator.pushNamed(context, '/web')
                                   as Route<Object?>);
                         },
-                        child: Container(
+                        child: Column(
+                          children: [
+                            Container(
 
-                          height: 100,
-                          width: 100,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: const DecorationImage(
-                                image: AssetImage('assets/word.png'),
-                                // Replace with your background image path
-                                fit: BoxFit.cover,
+                              height: 100,
+                              width: 100,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: const DecorationImage(
+                                    image: AssetImage('assets/image_game.png'),
+                                    // Replace with your background image path
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
+                            Text("More Games", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15 ),)
+                          ],
                         ),
                       ),
                     ],
@@ -475,6 +504,8 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   height: 10,
                 ),
+
+                SizedBox(height: 10,),
                 Row(
                   children: [
                     Padding(
@@ -483,26 +514,25 @@ class _HomePageState extends State<HomePage> {
                       child: Container(
                         child: Text(
                           "Constitution",
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(fontSize: 25,
+                          fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 150),
-                      child: TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                Navigator.pushNamed(context, '/seeall')
-                                    as Route<Object?>);
-                          },
-                          child: Text(
-                            "See all",
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          )),
-                    )
+                    Spacer(),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              Navigator.pushNamed(context, '/seeall')
+                                  as Route<Object?>);
+                        },
+                        child: Text(
+                          "See all",
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ))
                   ],
                 ),
                 SizedBox(
@@ -523,7 +553,7 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.red,
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
-                          image: AssetImage('assets/protest.jpg'),
+                          image: AssetImage('assets/img_9.png'),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -540,9 +570,9 @@ class _HomePageState extends State<HomePage> {
                               Container(
                                 width: 200,
                                 child: Text(
-                                  "Part III: Basic Human Rights & Duties",
+                                  "Part III: \nBasic Human Rights & Duties",
                                   style: TextStyle(
-                                    color: Colors.white70,
+                                    color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
                                   ),
@@ -569,7 +599,7 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                         image: const DecorationImage(
                           filterQuality: FilterQuality.medium,
-                          image: AssetImage('assets/part_IV.jpg'),
+                          image: AssetImage('assets/img_10.png'),
                           fit: BoxFit.cover,
                         ),
                         // color: Colors.red,
@@ -590,9 +620,9 @@ class _HomePageState extends State<HomePage> {
                               Container(
                                 width: 200,
                                 child: Text(
-                                  "Part IV: Directive Principles of State Policy",
+                                  "Part IV: \nDirective Principles of State Policy",
                                   style: TextStyle(
-                                    color: Colors.white70,
+                                    color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
                                   ),
@@ -619,7 +649,7 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                         image: const DecorationImage(
                           filterQuality: FilterQuality.medium,
-                          image: AssetImage('assets/crowd.jpg'),
+                          image: AssetImage('assets/img_11.png'),
                           fit: BoxFit.cover,
                         ),
                         // color: Colors.red,
@@ -640,7 +670,7 @@ class _HomePageState extends State<HomePage> {
                               Container(
                                 width: 200,
                                 child: Text(
-                                  "Part V: The Union",
+                                  "Part V: \nThe Union",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
