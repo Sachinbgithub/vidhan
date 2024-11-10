@@ -17,6 +17,8 @@ import 'package:vidhan/utility/bottom_nav.dart';
 
 import 'content/principles/part_4.dart';
 import 'content/principles/part_5.dart';
+import 'content/principles/principles_quize/screens/quiz_screen.dart';
+import 'games/courtRoom/courtroom.dart';
 import 'games/educandy.dart';
 
 void main() async {
@@ -51,6 +53,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomePage(),
         '/login': (context) => const LoginPage(),
         '/quize': (context) => const QuizScreen(),
+        // '/Pquize': (context) => const PrinQuiz(),
         '/snake': (context) => const GameHome(),
         '/edu': (context) => const WebViewExample(),
         '/part_4': (context) => DutiesAndPrinciplesPage(),
@@ -62,6 +65,7 @@ class MyApp extends StatelessWidget {
         // '/profile': (context) => const ProfilePage(),
         '/settings': (context) => SettingsPage(),
         '/nav': (context) => const BottomNav(),
+        '/courtroom':(context) => CourtroomGameApp(),
       },
     );
   }
