@@ -435,7 +435,7 @@ class _HomePageState extends State<HomePage> {
                               ),
 
                             ),
-                            Text("Court Room", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15 ),)
+                            Text("Court Room \n     Beta", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15 ),)
                           ],
                         ),
                       )  ,
@@ -464,7 +464,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                             ),
-                            Text("Vidhan Run", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15 ),)
+                            Text("Vidhan Run \n      Beta", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15 ),)
                           ],
                         ),
                       ),
