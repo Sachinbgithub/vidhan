@@ -34,10 +34,10 @@ class _SettingsPageState extends State<SettingsPage> {
             _buildSectionHeader('Additional Settings'),
             _buildListTile(Icons.notifications, 'Notifications', () {
               // Navigate to Notifications Screen
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => NotificationsPage()),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => NotificationsPage()),
+              // );
             }),
             _buildListTile(Icons.security, 'Privacy', () {
               // Navigate to Privacy Screen
@@ -93,111 +93,111 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 }
 
-// Notifications Page
-class NotificationsPage extends StatefulWidget {
-  @override
-  _NotificationsPageState createState() => _NotificationsPageState();
-}
-
-class _NotificationsPageState extends State<NotificationsPage> {
-  bool _newUpdates = true; // Toggle for "New Updates" notifications
-  bool _promotional = true; // Toggle for "Promotional" notifications
-  bool _sound = true; // Toggle for notification sound
-  bool _vibration = true; // Toggle for vibration
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Notification Settings'),
-        centerTitle: true,
-      ),
-      body: ListView(
-        padding: const EdgeInsets.all(16.0),
-        children: [
-          _buildSectionHeader('Notification Preferences'),
-          _buildSwitchTile(
-            'New Updates',
-            'Get notified about app updates and new features.',
-            _newUpdates,
-                (value) {
-              setState(() {
-                _newUpdates = value;
-              });
-            },
-          ),
-          _buildSwitchTile(
-            'Promotional Notifications',
-            'Receive promotional offers and discounts.',
-            _promotional,
-                (value) {
-              setState(() {
-                _promotional = value;
-              });
-            },
-          ),
-          _buildSectionHeader('Notification Settings'),
-          _buildSwitchTile(
-            'Notification Sound',
-            'Enable sound for notifications.',
-            _sound,
-                (value) {
-              setState(() {
-                _sound = value;
-              });
-            },
-          ),
-          _buildSwitchTile(
-            'Vibration',
-            'Enable vibration for notifications.',
-            _vibration,
-                (value) {
-              setState(() {
-                _vibration = value;
-              });
-            },
-          ),
-          SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: _generateNotification,
-            child: Text('Test Notification'),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildSectionHeader(String title) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
-      child: Text(
-        title,
-        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-      ),
-    );
-  }
-
-  Widget _buildSwitchTile(String title, String subtitle, bool value, Function(bool) onChanged) {
-    return SwitchListTile(
-      title: Text(title),
-      subtitle: Text(subtitle),
-      value: value,
-      onChanged: onChanged,
-      activeColor: Colors.blue,
-    );
-  }
-
-  // Function to simulate generating a notification
-  void _generateNotification() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('New notification: Data has been updated!'),
-        duration: Duration(seconds: 3),
-      ),
-    );
-    // Add functionality to trigger local or FCM notifications here.
-  }
-}
+// // Notifications Page
+// class NotificationsPage extends StatefulWidget {
+//   @override
+//   _NotificationsPageState createState() => _NotificationsPageState();
+// }
+//
+// class _NotificationsPageState extends State<NotificationsPage> {
+//   bool _newUpdates = true; // Toggle for "New Updates" notifications
+//   bool _promotional = true; // Toggle for "Promotional" notifications
+//   bool _sound = true; // Toggle for notification sound
+//   bool _vibration = true; // Toggle for vibration
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Notification Settings'),
+//         centerTitle: true,
+//       ),
+//       body: ListView(
+//         padding: const EdgeInsets.all(16.0),
+//         children: [
+//           _buildSectionHeader('Notification Preferences'),
+//           _buildSwitchTile(
+//             'New Updates',
+//             'Get notified about app updates and new features.',
+//             _newUpdates,
+//                 (value) {
+//               setState(() {
+//                 _newUpdates = value;
+//               });
+//             },
+//           ),
+//           _buildSwitchTile(
+//             'Promotional Notifications',
+//             'Receive promotional offers and discounts.',
+//             _promotional,
+//                 (value) {
+//               setState(() {
+//                 _promotional = value;
+//               });
+//             },
+//           ),
+//           _buildSectionHeader('Notification Settings'),
+//           _buildSwitchTile(
+//             'Notification Sound',
+//             'Enable sound for notifications.',
+//             _sound,
+//                 (value) {
+//               setState(() {
+//                 _sound = value;
+//               });
+//             },
+//           ),
+//           _buildSwitchTile(
+//             'Vibration',
+//             'Enable vibration for notifications.',
+//             _vibration,
+//                 (value) {
+//               setState(() {
+//                 _vibration = value;
+//               });
+//             },
+//           ),
+//           SizedBox(height: 20),
+//           ElevatedButton(
+//             onPressed: _generateNotification,
+//             child: Text('Test Notification'),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+//
+//   Widget _buildSectionHeader(String title) {
+//     return Padding(
+//       padding: const EdgeInsets.symmetric(vertical: 10.0),
+//       child: Text(
+//         title,
+//         style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+//       ),
+//     );
+//   }
+//
+//   Widget _buildSwitchTile(String title, String subtitle, bool value, Function(bool) onChanged) {
+//     return SwitchListTile(
+//       title: Text(title),
+//       subtitle: Text(subtitle),
+//       value: value,
+//       onChanged: onChanged,
+//       activeColor: Colors.blue,
+//     );
+//   }
+//
+//   // Function to simulate generating a notification
+//   void _generateNotification() {
+//     ScaffoldMessenger.of(context).showSnackBar(
+//       SnackBar(
+//         content: Text('New notification: Data has been updated!'),
+//         duration: Duration(seconds: 3),
+//       ),
+//     );
+//     // Add functionality to trigger local or FCM notifications here.
+//   }
+// }
 
 
 // Privacy Page
