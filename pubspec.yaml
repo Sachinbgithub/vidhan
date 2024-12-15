@@ -4,6 +4,7 @@ description: "A new Flutter project."
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
+
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
 # followed by an optional build number separated by a +.
@@ -39,11 +40,14 @@ dependencies:
   google_fonts: ^6.2.1
   lottie: ^3.1.2
   google_sign_in: ^6.2.1
-
+  firebase_messaging: ^15.1.2
+  flutter_local_notifications: ^13.0.0
+  shared_preferences: ^2.1.1
   webview_flutter: ^4.9.0
   #  rive: ^0.13.13
   image_picker: ^1.1.2
   http:
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -54,11 +58,13 @@ dependencies:
   firebase_auth: any
   google_generative_ai: ^0.4.6
   cloud_firestore: ^5.4.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   firebase_storage: ^12.2.0
   fluttertoast: ^8.2.8
+
   youtube_player_flutter: ^9.0.3
 
 
