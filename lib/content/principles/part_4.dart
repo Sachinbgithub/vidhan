@@ -102,14 +102,25 @@ class DutyCard extends StatelessWidget {
         );
       },
       child: Card(
-        color: Colors.blue[800],
+        color: Color(0xFFACB3D5),
         elevation: 4,
         margin: const EdgeInsets.symmetric(vertical: 8),
         child: Container(
           constraints: const BoxConstraints(
-            minHeight: 100,
-            maxHeight: 150,
+            // minHeight: 100,
+            // maxHeight: 150,
             minWidth: double.infinity,
+          ),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.3),
+                spreadRadius: 5,
+                blurRadius: 3,
+                offset: const Offset(3, 3),
+              )
+            ]
           ),
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -118,14 +129,14 @@ class DutyCard extends StatelessWidget {
               Text(
                 duty,
                 style: const TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 18,
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               Text(
                 description,
-                style: const TextStyle(fontSize: 14, color: Colors.white70),
+                style: const TextStyle(fontSize: 14, color: Colors.black45),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 3,
               ),
@@ -160,14 +171,14 @@ class DutyDetailsPage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.blue,
+            color: Color(0xFFACB3D5),
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 2,
-                blurRadius: 5,
-                offset: const Offset(0, 3),
+                color: Colors.black.withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 3,
+                offset: const Offset(3, 3),
               ),
             ],
           ),
@@ -179,14 +190,14 @@ class DutyDetailsPage extends StatelessWidget {
                   "Details of Duty: $duty",
                   style: const TextStyle(
                     fontSize: 24,
-                    color: Colors.white,
+                    color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 20),
                 Text(
                   description,
-                  style: const TextStyle(fontSize: 18, color: Colors.white70),
+                  style: const TextStyle(fontSize: 18, color: Colors.black45),
                 ),
                 const SizedBox(height: 20),
                 ...articles.map((article) => Padding(
@@ -199,13 +210,13 @@ class DutyDetailsPage extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: Colors.blue.shade50,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withOpacity(0.3),
-                          spreadRadius: 1,
+                          color: Colors.black.withOpacity(0.3),
+                          spreadRadius: 2,
                           blurRadius: 3,
-                          offset: const Offset(0, 1),
+                          offset: const Offset(3, 3),
                         ),
                       ],
                     ),

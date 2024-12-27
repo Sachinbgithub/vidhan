@@ -442,10 +442,10 @@ class _HomePageState extends State<HomePage> {
                       Spacer(),
                       GestureDetector(
                         onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     Navigator.pushNamed(context, '/snake')
-                          //         as Route<Object?>);
+                          Navigator.push(
+                              context,
+                              Navigator.pushNamed(context, '/quiz_test')
+                                  as Route<Object?>);
                         },
                         child: Column(
                           children: [

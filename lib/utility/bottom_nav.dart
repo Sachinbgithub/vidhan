@@ -5,7 +5,9 @@ import 'package:vidhan/pages/profile_page.dart';
 import 'package:vidhan/pages/settings_page.dart';
 import 'package:vidhan/pages/test.dart';
 
-import '../pages/temp_profile.dart';
+import '../pages/profile_test.dart';
+// import '../pages/temp_profile.dart';
+import '../pages/profile_test2.dart';
 import '../pages/userAuth/leaderboard.dart';
 import '../pages/userAuth/temp_leader.dart';
 
@@ -47,7 +49,9 @@ class _BottomNavState extends State<BottomNav> {
           //       'https://i.pinimg.com/736x/9f/9f/bb/9f9fbb3b96703d08b68aaa8c34aba638.jpg',
           //   progress: 75,
           // ),
-          ProfilePageLeaderboardStyle(),
+          ProfilePageTest2(),
+          // ProfilePage(),
+          // ProfilePage(name: '', age: 18, profilePictureUrl: '', progress: 50,),
           // LeaderboardPage(),
           // EnhancedLeaderboardPage(),
           LeaderboardWithDummyRanks(),

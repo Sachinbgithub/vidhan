@@ -93,7 +93,7 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
                           borderRadius: BorderRadius.circular(8),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.grey.withOpacity(0.3),
+                              color: Colors.grey.withValues(),
                               spreadRadius: 1,
                               blurRadius: 3,
                               offset: const Offset(0, 1),

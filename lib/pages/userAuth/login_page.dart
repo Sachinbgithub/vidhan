@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:vidhan/pages/userAuth/form_controller_widget.dart';
+import 'package:vidhan/pages/userAuth/signup_db.dart';
 import 'package:vidhan/pages/userAuth/signup_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'firebase_auth_services.dart';
@@ -122,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                                   color: Colors.white,
                                 )
                               : Text(
-                                  "Play & Login",
+                                  "Login",
                                   style: TextStyle(
                                     color: Color(0xFFFFF4EA),
                                     fontWeight: FontWeight.bold,
@@ -184,12 +185,12 @@ class _LoginPageState extends State<LoginPage> {
                             Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const SignUpPage()),
+                                    builder: (context) => const SignUpPage2()),
                                 (route) => false);
                           },
                           child: const Text(
                             "Sign Up",
-                            style: TextStyle( fontSize: 20, color: Colors.white),
+                            style: TextStyle( fontSize: 20, color: Colors.black),
                           ),
                         ),
                       ],

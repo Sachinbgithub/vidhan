@@ -92,14 +92,12 @@ class DutyCard extends StatelessWidget {
   // bool _isVideoVisible = false;
   // YoutubePlayerController? _controller;
 
-
-   DutyCard(
+  DutyCard(
       {Key? key,
       required this.right,
       required this.description,
       required this.articles})
       : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -114,56 +112,10 @@ class DutyCard extends StatelessWidget {
         );
       },
       child:
-          // Container(
-          //   decoration: BoxDecoration(
-          //     color: Colors.amber,
-          //     borderRadius: BorderRadius.circular(10),
-          //
-          //     boxShadow: [
-          //     BoxShadow(
-          //       color: Colors.black.withOpacity(0.9),
-          //       spreadRadius: 5,
-          //       blurRadius: 10,
-          //       offset: const Offset(5, 5), // changes position of shadow
-          //     ),
-          //   ],
-          //   ),
-          //   child: Transform.rotate(
-          //   angle: 00, // Adjust the angle as needed
-          //   child: Card(
-          //     color: Colors.amber,
-          //     elevation: 0, // Remove default elevation
-          //     margin: const EdgeInsets.symmetric(vertical: 8),
-          //     shape: RoundedRectangleBorder(
-          //       borderRadius: BorderRadius.circular(10),
-          //     ),
-          //     child: Padding(
-          //       padding: const EdgeInsets.all(16),
-          //       child: Column(
-          //         crossAxisAlignment: CrossAxisAlignment.start,
-          //         children: [
-          //           Text(
-          //             right,
-          //             style: const TextStyle(
-          //               color: Colors.white,
-          //               fontSize: 18,
-          //               fontWeight: FontWeight.bold,
-          //             ),
-          //           ),
-          //           const SizedBox(height: 8),
-          //           Text(
-          //             description,
-          //             style: const TextStyle(fontSize: 14, color: Colors.white70),
-          //           ),
-          //         ],
-          //       ),
-          //     ),
-          //   ),
-          // ),
-          // )
           Card(
         // color: Colors.amber,
-        color: Colors.blue[800],
+        // color: Colors.blue[800],
+        color: Color(0xFFACB3D5),
         elevation: 100,
         margin: const EdgeInsets.symmetric(vertical: 8),
         child: Padding(
@@ -173,16 +125,24 @@ class DutyCard extends StatelessWidget {
             children: [
               Text(right,
                   style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold)),
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    shadows: [
+                      Shadow(
+                        blurRadius: 10.0,
+                        color: Colors.black45,
+                        offset: Offset(3.0, 3.0),
+                      ),
+                    ],
+                  )),
               const SizedBox(
                 width: double.infinity,
                 height: 8,
               ),
               Text(
                 description,
-                style: TextStyle(fontSize: 14, color: Colors.white70),
+                style: TextStyle(fontSize: 14, color: Colors.black45),
               ),
             ],
           ),
@@ -211,14 +171,12 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
   YoutubePlayerController? _controller;
 // Function to show the video
   void _showVideo(String videoId) {
-
     setState(() {
       _controller = YoutubePlayerController(
         initialVideoId: videoId,
         flags: YoutubePlayerFlags(
           autoPlay: true,
           mute: false,
-
         ),
       );
       _isVideoVisible = true;
@@ -230,6 +188,7 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
     _controller?.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -242,14 +201,15 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
         padding: const EdgeInsets.all(16.0),
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.blue, // Light grey background
+            // color: Colors.blue, // Light grey background
+            color: Color(0xFFACB3D5),
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 2,
-                blurRadius: 5,
-                offset: const Offset(0, 3), // changes position of shadow
+                color: Colors.grey,
+                spreadRadius: 10.0,
+                blurRadius: 10.0,
+                offset: const Offset(3.1, 2), // changes position of shadow
               ),
             ],
           ),
@@ -262,7 +222,7 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
                     "Articles under \n${widget.article} :",
                     style: const TextStyle(
                       fontSize: 24,
-                      color: Colors.white,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -277,9 +237,9 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
                                 boxShadow: [
                                   BoxShadow(
                                     color: Colors.grey.withOpacity(0.3),
-                                    spreadRadius: 1,
+                                    spreadRadius: 10,
                                     blurRadius: 3,
-                                    offset: const Offset(0, 1),
+                                    offset: const Offset(3.5, 2),
                                   ),
                                 ],
                               ),
@@ -310,16 +270,18 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
                                                 return AlertDialog(
                                                   title: const Text(
                                                       'Simplified Explanation'),
-                                                  content: Text(
-                                                    'Here isa simplified explanation of $subArticle:\n\n'
+                                                  content:
+                                                  // ArticleDetailPage(article: '', description: '', articles: [subArticle],),
+                                                  Text(
+                                                    'Here is a simplified explanation of $subArticle:\n\n'
+
                                                     // Add your logic to generate a simplified explanation here
                                                     ' This means that every individual, regardless of their caste, creed, race, sex, place of birth, or religion, is treated equally and has equal rights and opportunities. The state cannot deny equality to anyone, and all citizens are entitled to equal protection under the law, promoting fairness andjustice.',
                                                   ),
                                                   actions: [
                                                     TextButton(
                                                       onPressed: () {
-                                                        Navigator.of(context)
-                                                            .pop();
+                                                        Navigator.of(context).pop();
                                                       },
                                                       child:
                                                           const Text('Close'),
@@ -334,19 +296,17 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
                                           child: const Text('AI'),
                                         ),
                                         ElevatedButton(
-                                          onPressed:
-                                              () {
-                                                // _showVideo('18Qy9EZrF9Y');
+                                          onPressed: () {
+                                            // _showVideo('18Qy9EZrF9Y');
                                             Navigator.push(
                                               context,
                                               MaterialPageRoute(
-                                                builder: (context) => YoutubeVideoPlayer(
-                                                    videoId:'18Qy9EZrF9Y'), // Replace with your video ID
+                                                builder: (context) =>
+                                                    YoutubeVideoPlayer(
+                                                        videoId:
+                                                            '18Qy9EZrF9Y'), // Replace with your video ID
                                               ),
                                             );
-
-
-
                                           },
                                           child: const Text('Watch'),
                                         ),
@@ -365,8 +325,9 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
                                           onPressed: () {
                                             Navigator.push(
                                                 context,
-                                                Navigator.pushNamed(context, '/quize')
-                                                as Route<Object?>);
+                                                Navigator.pushNamed(
+                                                        context, '/quize')
+                                                    as Route<Object?>);
                                             // Handle Bookmark action
                                             print(
                                                 'Bookmark tapped for $subArticle');
@@ -381,9 +342,16 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
                             ),
                           ))
                       .toList(),
+
                   const SizedBox(height: 20),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          Navigator.pushNamed(
+                              context, '/quiz_1')
+                          as Route<Object?>);
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.amberAccent,
                       padding: const EdgeInsets.symmetric(
@@ -393,7 +361,7 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    child: Icon(Icons.voice_chat),
+                    child: Center(child: Text("Play Quize")),
                   ),
                 ]),
               ],

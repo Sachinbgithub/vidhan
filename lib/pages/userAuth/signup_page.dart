@@ -34,7 +34,7 @@ class _SignUpPageState extends State<SignUpPage> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(""),// add assets/registerrr.png here
+            image: AssetImage(""), // add assets/registerrr.png here
             fit: BoxFit.cover,
           ),
         ),
@@ -45,7 +45,6 @@ class _SignUpPageState extends State<SignUpPage> {
               rect: Rect.fromLTWH(90, 20, 250, 250),
               child: Lottie.network(
                 'https://lottie.host/52d9b199-7b32-4ce3-a2c4-422ef60f62db/6kchQb5DS6.json',
-
               ),
             ),
             Center(

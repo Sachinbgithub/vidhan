@@ -145,14 +145,18 @@ import 'package:vidhan/games/snakes/snakes_ladders.dart';
 import 'package:vidhan/pages/homepage.dart';
 import 'package:vidhan/pages/settings_page.dart';
 import 'package:vidhan/pages/splashscreen.dart';
+import 'package:vidhan/pages/userAuth/login_db.dart';
 import 'package:vidhan/pages/userAuth/login_page.dart';
+import 'package:vidhan/pages/userAuth/signup_db.dart';
 import 'package:vidhan/utility/bottom_nav.dart';
 
 import 'content/principles/part_4.dart';
 import 'content/principles/part_5.dart';
-import 'content/principles/principles_quize/screens/quiz_screen.dart';
 import 'games/courtRoom/courtroom.dart';
 import 'games/educandy.dart';
+import 'games/quize/daily_quize.dart';
+import 'games/quize/part_3/rightToEquality.dart';
+import 'games/quize/quiz_test.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -195,7 +199,9 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/home': (context) => const HomePage(),
         '/login': (context) => const LoginPage(),
-        '/quize': (context) => const QuizScreen(),
+        '/signup': (context) => const SignUpPage2(),
+        '/quize': (context) => const DailyConstitutionQuiz(),
+        '/quiz_test': (context) => const ConstitutionQuiz(),
         '/snake': (context) => const GameHome(),
         '/edu': (context) => const WebViewExample(),
         '/part_4': (context) => DutiesAndPrinciplesPage(),
@@ -208,6 +214,9 @@ class _MyAppState extends State<MyApp> {
             // SettingsPage(toggleTheme: toggleTheme, isDarkMode: _isDarkMode),
         '/nav': (context) => const BottomNav(),
         '/courtroom': (context) => CourtroomGameApp(),
+
+        // Quiz routes
+        '/quiz_1': (context) => RightToEquality(),
       },
     );
   }
