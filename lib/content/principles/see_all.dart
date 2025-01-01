@@ -11,7 +11,7 @@ class _SeeAllState extends State<SeeAll> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("constitution"),),
+      appBar: AppBar(title: const Text("constitution"),),
       body:
       Center(
         child: Column(
@@ -30,7 +30,7 @@ class _SeeAllState extends State<SeeAll> {
                   decoration: BoxDecoration(
                     color: Colors.red,
                     borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
+                    image: const DecorationImage(
                       image: AssetImage('assets/img_9.png'),
                       fit: BoxFit.cover,
                     ),
@@ -42,10 +42,10 @@ class _SeeAllState extends State<SeeAll> {
                       alignment: Alignment.centerLeft,
                       width: double.infinity,
                       height: 100,
-                      child: Column(
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Container(
+                          SizedBox(
                             width: 200,
                             child: Text(
                               "Part III: Basic Human Rights & Duties",
@@ -92,10 +92,10 @@ class _SeeAllState extends State<SeeAll> {
                       alignment: Alignment.centerLeft,
                       width: double.infinity,
                       height: 100,
-                      child: Column(
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Container(
+                          SizedBox(
                             width: 200,
                             child: Text(
                               "Part IV: Directive Principles of State Policy",
@@ -141,10 +141,10 @@ class _SeeAllState extends State<SeeAll> {
                       alignment: Alignment.centerLeft,
                       width: double.infinity,
                       height: 100,
-                      child: Column(
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Container(
+                          SizedBox(
                             width: 200,
                             child: Text(
                               "Part V: The Union",

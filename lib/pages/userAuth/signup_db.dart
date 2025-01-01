@@ -3,14 +3,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:vidhan/pages/userAuth/form_controller_widget.dart'; // Adjust this import based on your project structure
 
-class SignUpPage2 extends StatefulWidget {
-  const SignUpPage2({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<SignUpPage2> createState() => _SignUpPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage2> {
+class _SignUpPageState extends State<SignUpPage> {
   bool _isSignup = false;
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
@@ -89,7 +89,7 @@ class _SignUpPageState extends State<SignUpPage2> {
         await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
           'name': username,
           'email': email,
-          'profilePicture': '', // Default empty profile picture
+          // 'profilePicture': '', // Default empty profile picture
           'rewardPoints': 0, // Initial reward points
           'dailyStreak': 0, // Initial daily streak
         });

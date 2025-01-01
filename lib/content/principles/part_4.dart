@@ -43,6 +43,8 @@ class DutiesAndPrinciplesPage extends StatelessWidget {
     // Add more articles as necessary
   };
 
+   DutiesAndPrinciplesPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +68,7 @@ class DutiesAndPrinciplesPage extends StatelessWidget {
                   description: dutyDescriptions[duty] ?? '',
                   articles: dutyArticles[duty] ?? [],
                 );
-              }).toList(),
+              }),
             ],
           ),
         ),
@@ -80,7 +82,7 @@ class DutyCard extends StatelessWidget {
   final String description;
   final List<String> articles;
 
-  DutyCard({
+  const DutyCard({super.key, 
     required this.duty,
     required this.description,
     required this.articles,
@@ -102,7 +104,7 @@ class DutyCard extends StatelessWidget {
         );
       },
       child: Card(
-        color: Color(0xFFACB3D5),
+        color: const Color(0xFFACB3D5),
         elevation: 4,
         margin: const EdgeInsets.symmetric(vertical: 8),
         child: Container(
@@ -153,7 +155,7 @@ class DutyDetailsPage extends StatelessWidget {
   final String description;
   final List<String> articles;
 
-  DutyDetailsPage({
+  const DutyDetailsPage({super.key, 
     required this.duty,
     required this.description,
     required this.articles,
@@ -171,7 +173,7 @@ class DutyDetailsPage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Container(
           decoration: BoxDecoration(
-            color: Color(0xFFACB3D5),
+            color: const Color(0xFFACB3D5),
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
@@ -299,7 +301,7 @@ class DutyDetailsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                )).toList(),
+                )),
                 const SizedBox(height: 20),
               ],
             ),

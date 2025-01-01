@@ -135,27 +135,21 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:vidhan/content/facts.dart';
 import 'package:vidhan/content/principles/temp_part_III.dart';
 
 import 'package:vidhan/content/principles/see_all.dart';
-import 'package:vidhan/games/quize/screens/quiz_screen.dart';
-import 'package:vidhan/games/snakes/snakes_ladders.dart';
 import 'package:vidhan/pages/homepage.dart';
-import 'package:vidhan/pages/settings_page.dart';
-import 'package:vidhan/pages/splashscreen.dart';
-import 'package:vidhan/pages/userAuth/login_db.dart';
+import 'package:vidhan/utility/splashscreen.dart';
 import 'package:vidhan/pages/userAuth/login_page.dart';
 import 'package:vidhan/pages/userAuth/signup_db.dart';
 import 'package:vidhan/utility/bottom_nav.dart';
 
 import 'content/principles/part_4.dart';
 import 'content/principles/part_5.dart';
-import 'games/courtRoom/courtroom.dart';
+import 'games/courtRoom/test.dart';
 import 'games/educandy.dart';
 import 'games/quize/daily_quize.dart';
-import 'games/quize/part_3/rightToEquality.dart';
 import 'games/quize/quiz_test.dart';
 
 void main() async {
@@ -168,10 +162,12 @@ void main() async {
       projectId: 'vidhan-865c0',
     ),
   );
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -199,24 +195,23 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/home': (context) => const HomePage(),
         '/login': (context) => const LoginPage(),
-        '/signup': (context) => const SignUpPage2(),
+        '/signup': (context) => const SignUpPage(),
         '/quize': (context) => const DailyConstitutionQuiz(),
         '/quiz_test': (context) => const ConstitutionQuiz(),
-        '/snake': (context) => const GameHome(),
         '/edu': (context) => const WebViewExample(),
-        '/part_4': (context) => DutiesAndPrinciplesPage(),
-        '/part_5': (context) => UnionPage(),
-        '/facts': (context) => Facts(),
-        '/part_3': (context) => RightsPage2(),
+        '/part_4': (context) =>  DutiesAndPrinciplesPage(),
+        '/part_5': (context) =>  UnionPage(),
+        '/facts': (context) => const Facts(),
+        '/part_3': (context) =>  RightsPage2(),
         '/web': (context) => const WebViewExample(),
         '/seeall': (context) => const SeeAll(),
         // '/settings': (context) =>
             // SettingsPage(toggleTheme: toggleTheme, isDarkMode: _isDarkMode),
         '/nav': (context) => const BottomNav(),
-        '/courtroom': (context) => CourtroomGameApp(),
+        '/courtroom': (context) => const CourtroomGame(),
 
         // Quiz routes
-        '/quiz_1': (context) => RightToEquality(),
+        // '/quiz_1': (context) => RightToEquality(),
       },
     );
   }

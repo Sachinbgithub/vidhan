@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class ProfilePageTest2 extends StatefulWidget {
-  const ProfilePageTest2({super.key});
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
 
   @override
-  State<ProfilePageTest2> createState() => _ProfilePageTest2State();
+  State<ProfilePage> createState() => _ProfilePageState();
 }
 
-class _ProfilePageTest2State extends State<ProfilePageTest2> {
+class _ProfilePageState extends State<ProfilePage> {
   final TextEditingController _nameController = TextEditingController();
   bool _isEditing = false;
   bool _isLoading = false;
@@ -289,7 +289,7 @@ class _ProfilePageTest2State extends State<ProfilePageTest2> {
             itemBuilder: (context, index) {
               final score = dailyQuizScores[index];
               return ListTile(
-                leading: const Icon(Icons.quiz),
+                leading: const Icon(Icons.add_task_outlined),
                 title: Text('Score: ${score['score']}/10'),
                 subtitle: Text('Date: ${score['date']}'),
                 trailing: score['score'] >= 7
@@ -306,8 +306,10 @@ class _ProfilePageTest2State extends State<ProfilePageTest2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue[50],
       appBar: AppBar(
         title: const Text('Profile'),
+        backgroundColor: Colors.blue[50],
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
@@ -336,10 +338,10 @@ class _ProfilePageTest2State extends State<ProfilePageTest2> {
             return Center(
               child:  Column(
                 children: [
-                  Center(child: Text('No user data found'),
+                  const Center(child: Text('No user data found'),
                   ),
-                  SizedBox(height: 20,),
-                   Text("Login for profile access!"),
+                  const SizedBox(height: 20,),
+                   const Text("Login for profile access!"),
                   Center(
                     child:IconButton(
                       icon: const Icon(Icons.login),

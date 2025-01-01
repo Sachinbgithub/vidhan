@@ -310,7 +310,7 @@ class _RightToEqualityState extends State<RightToEquality> {
         child: ElevatedButton(
           onPressed: _answered ? null : () => _checkAnswer(index),
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
+            backgroundColor: WidgetStateProperty.resolveWith<Color>((states) {
               if (_answered) {
                 if (index == _selectQuestions[_currentQuestionIndex]['correctAnswer']) {
                   return Colors.green;
@@ -321,7 +321,7 @@ class _RightToEqualityState extends State<RightToEquality> {
               }
               return Theme.of(context).primaryColor;
             }),
-            padding: MaterialStateProperty.all(
+            padding: WidgetStateProperty.all(
               const EdgeInsets.symmetric(vertical: 15),
             ),
           ),

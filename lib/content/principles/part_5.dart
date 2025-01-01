@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -51,6 +50,8 @@ class UnionPage extends StatelessWidget {
     ],
   };
 
+   UnionPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +72,7 @@ class UnionPage extends StatelessWidget {
                     provision: provision,
                     description: provisionDescriptions[provision]!,
                     articles: articles[provision]!);
-              }).toList(),
+              }),
             ],
           ),
         ),
@@ -85,12 +86,11 @@ class InfoCard extends StatelessWidget {
   final String description;
   final List<String> articles;
 
-  InfoCard(
-      {Key? key,
+  const InfoCard(
+      {super.key,
         required this.provision,
         required this.description,
-        required this.articles})
-      : super(key: key);
+        required this.articles});
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +126,7 @@ class InfoCard extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 description,
-                style: TextStyle(fontSize: 14, color: Colors.white70),
+                style: const TextStyle(fontSize: 14, color: Colors.white70),
                 overflow: TextOverflow.ellipsis, // Text overflow handling
                 maxLines: 3,
               ),
@@ -143,8 +143,8 @@ class DetailsPage extends StatefulWidget {
   final String description;
   final List<String> articles;
 
-  DetailsPage(
-      {required this.provision,
+  const DetailsPage(
+      {super.key, required this.provision,
         required this.description,
         required this.articles});
 
@@ -160,7 +160,7 @@ class _DetailsPageState extends State<DetailsPage> {
     setState(() {
       _controller = YoutubePlayerController(
         initialVideoId: videoId,
-        flags: YoutubePlayerFlags(
+        flags: const YoutubePlayerFlags(
           autoPlay: true,
           mute: false,
         ),
@@ -281,7 +281,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => YoutubeVideoPlayer(
+                                        builder: (context) => const YoutubeVideoPlayer(
                                             videoId: '18Qy9EZrF9Y'),
                                       ),
                                     );
@@ -300,7 +300,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         ),
                       ),
                     ),
-                  )).toList(),
+                  )),
                   const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {},
@@ -313,7 +313,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    child: Icon(Icons.voice_chat),
+                    child: const Icon(Icons.voice_chat),
                   ),
                 ]),
               ],

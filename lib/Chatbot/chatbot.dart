@@ -81,15 +81,15 @@ class _Chat_BotState extends State<Chat_Bot> {
                   return MsgWidget(
                     text: text,
                     isFromUser: content.role == 'user',
-                    userColor: Color(0xFF9E9D9F),
+                    userColor: const Color(0xFF9E9D9F),
                     // Custom purple for user messages
-                    botColor: Color(0xFFE1E1F6), // Custom teal for bot messages
+                    botColor: const Color(0xFFE1E1F6), // Custom teal for bot messages
                   );
                 },
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 vertical: 25,
                 horizontal: 15,
               ),

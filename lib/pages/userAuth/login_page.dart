@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:vidhan/pages/userAuth/form_controller_widget.dart';
 import 'package:vidhan/pages/userAuth/signup_db.dart';
-import 'package:vidhan/pages/userAuth/signup_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'firebase_auth_services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -36,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(""), // add registerrr.png here
             // Replace with your image path
@@ -48,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             // Lottie animation added here
             Positioned.fromRect(
-              rect: Rect.fromLTWH(100, 10, 210, 250),
+              rect: const Rect.fromLTWH(100, 10, 210, 250),
               child: Lottie.network(
                 'https://lottie.host/6064e841-95af-485f-9d4a-77a0ea1ca795/bXWouOhFq6.json',
               ),
@@ -107,9 +106,9 @@ class _LoginPageState extends State<LoginPage> {
                         width: double.infinity,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: Color(0xFF004271),
+                          color: const Color(0xFF004271),
                           borderRadius: BorderRadius.circular(50),
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: Colors.black45,
                               blurRadius: 10,
@@ -119,10 +118,10 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         child: Center(
                           child: _isSigning
-                              ? CircularProgressIndicator(
+                              ? const CircularProgressIndicator(
                                   color: Colors.white,
                                 )
-                              : Text(
+                              : const Text(
                                   "Login",
                                   style: TextStyle(
                                     color: Color(0xFFFFF4EA),
@@ -140,9 +139,9 @@ class _LoginPageState extends State<LoginPage> {
                         width: double.infinity,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: Color(0xFF004271),
+                          color: const Color(0xFF004271),
                           borderRadius: BorderRadius.circular(50),
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: Colors.black45,
                               blurRadius: 10,
@@ -185,7 +184,7 @@ class _LoginPageState extends State<LoginPage> {
                             Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const SignUpPage2()),
+                                    builder: (context) => const SignUpPage()),
                                 (route) => false);
                           },
                           child: const Text(
@@ -218,7 +217,7 @@ class _LoginPageState extends State<LoginPage> {
                         decoration: BoxDecoration(
                           color: Colors.orangeAccent, // Button color
                           borderRadius: BorderRadius.circular(50),
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: Colors.black45,
                               blurRadius: 10,
@@ -226,7 +225,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ],
                         ),
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             "Skip",
                             style: TextStyle(
@@ -263,7 +262,7 @@ class _LoginPageState extends State<LoginPage> {
     });
     if (user != null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Sign in successful!")),
+        const SnackBar(content: Text("Sign in successful!")),
       );
       Navigator.pushNamedAndRemoveUntil(context, '/nav', (route) => false);
     } else {

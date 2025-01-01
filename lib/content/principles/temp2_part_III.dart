@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:convert';
-import 'package:google_generative_ai/google_generative_ai.dart';
-import 'package:vidhan/Chatbot/msg_widget.dart';
 // import 'package:http/http.dart' as http;
 // Assuming you have the GeminiService integrated, import it here
 // import 'package:vidhan/services/gemini_service.dart';
@@ -12,8 +8,8 @@ class ArticleDetailPage extends StatefulWidget {
   final String description;
   final List<String> articles;
 
-  ArticleDetailPage(
-      {required this.article,
+  const ArticleDetailPage(
+      {super.key, required this.article,
         required this.description,
         required this.articles});
 
@@ -117,10 +113,10 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
                           ),
                         ),
                       ),
-                    )).toList(),
+                    )),
                     const SizedBox(height: 20),
                     isLoading
-                        ? Center(child: CircularProgressIndicator())
+                        ? const Center(child: CircularProgressIndicator())
                         : explanation != null
                         ? Text(
                       "AI Explanation:\n\n$explanation",
@@ -164,11 +160,11 @@ class GeminiService {
   // Mock implementation, you need to replace with actual API call
   Future<String> getExplanation(String article) async {
     // Simulate API call delay
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
 
     // This is where you'd make your actual API call
     // For example:
-    final response = await ('AIzaSyC8Tk0-buF_AYwX8Eii7KHiPJkitWpU7ng', body: { 'article': article });
+    final response = ('AIzaSyC8Tk0-buF_AYwX8Eii7KHiPJkitWpU7ng', body: { 'article': article });
 
     // Return mock response
     return "This is a detailed explanation for $article from Gemini AI.";

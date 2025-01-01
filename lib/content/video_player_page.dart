@@ -4,7 +4,7 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 class YoutubeVideoPlayer extends StatefulWidget {
   final String videoId;
 
-  const YoutubeVideoPlayer({Key? key, required this.videoId}) : super(key: key);
+  const YoutubeVideoPlayer({super.key, required this.videoId});
 
   @override
   _YoutubeVideoPlayerState createState() => _YoutubeVideoPlayerState();
@@ -37,8 +37,8 @@ class _YoutubeVideoPlayerState extends State<YoutubeVideoPlayer> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Watch Video'),
-        content: Container(
+        title: const Text('Watch Video'),
+        content: SizedBox(
           height: 300,
           child: YoutubePlayer(
             controller: _controller,
@@ -47,7 +47,7 @@ class _YoutubeVideoPlayerState extends State<YoutubeVideoPlayer> {
         ),
         actions: [
           TextButton(
-            child: Text('Close'),
+            child: const Text('Close'),
             onPressed: () {
               Navigator.of(context).pop();
             },
@@ -60,7 +60,7 @@ class _YoutubeVideoPlayerState extends State<YoutubeVideoPlayer> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('learn here'),
+        title: const Text('learn here'),
       ),
       body: Column(
         children: [

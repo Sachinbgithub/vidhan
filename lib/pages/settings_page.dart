@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class SettingsPage extends StatefulWidget {
+  const SettingsPage({super.key});
+
 
   @override
   _SettingsPageState createState() => _SettingsPageState();
@@ -9,7 +11,7 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   bool _isDarkMode = false;
-  String _selectedLanguage = 'English';
+  final String _selectedLanguage = 'English';
   final List<String> _languages = ['English', 'Marathi', 'Hindi'];
 
   @override
@@ -17,7 +19,7 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
       backgroundColor: Colors.blue[50],
       appBar: AppBar(
-        title: Text('Settings'),
+        title: const Text('Settings'),
         centerTitle: true,
         backgroundColor: Colors.blue[50],
       ),
@@ -28,7 +30,7 @@ class _SettingsPageState extends State<SettingsPage> {
             // Change Theme Section
             _buildSectionHeader('Change Theme'),
             _buildThemeSwitch(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             // Additional Settings Section
             _buildSectionHeader('Additional Settings'),
@@ -43,14 +45,14 @@ class _SettingsPageState extends State<SettingsPage> {
               // Navigate to Privacy Screen
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => PrivacyPage()),
+                MaterialPageRoute(builder: (context) => const PrivacyPage()),
               );
             }),
             _buildListTile(Icons.help, 'Help & Support', () {
               // Navigate to Help & Support Screen
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => HelpSupportPage()),
+                MaterialPageRoute(builder: (context) => const HelpSupportPage()),
               );
             }),
           ],
@@ -64,14 +66,14 @@ class _SettingsPageState extends State<SettingsPage> {
       padding: const EdgeInsets.symmetric(vertical: 10.0),
       child: Text(
         title,
-        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+        style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
       ),
     );
   }
 
   Widget _buildThemeSwitch() {
     return SwitchListTile(
-      title: Text('Dark Mode'),
+      title: const Text('Dark Mode'),
       value: _isDarkMode,
       onChanged: (bool value) {
         setState(() {
@@ -88,7 +90,7 @@ class _SettingsPageState extends State<SettingsPage> {
       leading: Icon(icon, color: Colors.blue),
       title: Text(title),
       onTap: onTap,
-      trailing: Icon(Icons.arrow_forward_ios, size: 16),
+      trailing: const Icon(Icons.arrow_forward_ios, size: 16),
     );
   }
 }
@@ -202,33 +204,35 @@ class _SettingsPageState extends State<SettingsPage> {
 
 // Privacy Page
 class PrivacyPage extends StatelessWidget {
+  const PrivacyPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Privacy Policy'),
+        title: const Text('Privacy Policy'),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Privacy Policy',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Effective Date: [1 Dec 2024]',
               style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             _buildSection(
               'Introduction',
               'Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use our app.',
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             _buildSection(
               'Information We Collect',
               'We may collect the following types of information:\n'
@@ -236,7 +240,7 @@ class PrivacyPage extends StatelessWidget {
                   '2. Usage Data: Information about how you interact with the app.\n'
                   '3. Device Information: Device type, operating system, and app version.',
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             _buildSection(
               'How We Use Your Information',
               'We use your information to:\n'
@@ -244,19 +248,19 @@ class PrivacyPage extends StatelessWidget {
                   '2. Respond to your inquiries and provide support.\n'
                   '3. Personalize your app experience.',
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             _buildSection(
               'How We Protect Your Information',
               'We implement industry-standard security measures to protect your information. However, no method of transmission over the internet or electronic storage is 100% secure.',
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             _buildSection(
               'Sharing Your Information',
               'We do not sell your personal information. We may share your information with third parties for the following purposes:\n'
                   '1. To comply with legal obligations.\n'
                   '2. To provide services through trusted partners.',
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             _buildSection(
               'Your Rights',
               'You have the right to:\n'
@@ -264,18 +268,18 @@ class PrivacyPage extends StatelessWidget {
                   '2. Opt-out of receiving marketing communications.\n'
                   '3. Request a copy of the information we have about you.',
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             _buildSection(
               'Changes to This Privacy Policy',
               'We may update this Privacy Policy from time to time. We will notify you of any changes by updating the effective date at the top of this page.',
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Contact Us',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
-            Text(
+            const SizedBox(height: 10),
+            const Text(
               'If you have any questions about this Privacy Policy, please contact us at:\n'
                   'Email: support@appname.com\n'
                   'Phone: +91 ',
@@ -293,12 +297,12 @@ class PrivacyPage extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Text(
           content,
-          style: TextStyle(fontSize: 16, height: 1.5),
+          style: const TextStyle(fontSize: 16, height: 1.5),
         ),
       ],
     );
@@ -307,6 +311,8 @@ class PrivacyPage extends StatelessWidget {
 
 // Help & Support Page
 class HelpSupportPage extends StatefulWidget {
+  const HelpSupportPage({super.key});
+
   @override
   _HelpSupportPageState createState() => _HelpSupportPageState();
 }
@@ -317,7 +323,7 @@ class _HelpSupportPageState extends State<HelpSupportPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _complaintController = TextEditingController();
 
-  List<Map<String, String>> _faqs = [
+  final List<Map<String, String>> _faqs = [
     {'question': 'How do I reset my password?', 'answer': 'Go to settings and select "Reset Password".'},
     {'question': 'Where can I view my order history?', 'answer': 'You can view your order history in the "Orders" section.'},
     {'question': 'How do I contact support?', 'answer': 'You can contact support via the complaint form on this page.'},
@@ -342,12 +348,12 @@ class _HelpSupportPageState extends State<HelpSupportPage> {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('Thank You!'),
-            content: Text('Thank you for your valuable feedback.'),
+            title: const Text('Thank You!'),
+            content: const Text('Thank you for your valuable feedback.'),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text('OK'),
+                child: const Text('OK'),
               ),
             ],
           ),
@@ -364,7 +370,7 @@ class _HelpSupportPageState extends State<HelpSupportPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Help & Support'),
+        title: const Text('Help & Support'),
         centerTitle: true,
       ),
       body: Padding(
@@ -372,18 +378,18 @@ class _HelpSupportPageState extends State<HelpSupportPage> {
         child: ListView(
           children: [
             // Complaint Form
-            Text(
+            const Text(
               'Submit a Complaint',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Form(
               key: _formKey,
               child: Column(
                 children: [
                   TextFormField(
                     controller: _nameController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Name',
                       border: OutlineInputBorder(),
                     ),
@@ -394,10 +400,10 @@ class _HelpSupportPageState extends State<HelpSupportPage> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextFormField(
                     controller: _emailController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Email',
                       border: OutlineInputBorder(),
                     ),
@@ -411,10 +417,10 @@ class _HelpSupportPageState extends State<HelpSupportPage> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextFormField(
                     controller: _complaintController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Complaint',
                       border: OutlineInputBorder(),
                     ),
@@ -426,35 +432,35 @@ class _HelpSupportPageState extends State<HelpSupportPage> {
                       return null;
                     },
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: _submitComplaint,
-                    child: Text('Submit Complaint'),
+                    child: const Text('Submit Complaint'),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
 
             // FAQ Section
-            Text(
+            const Text(
               'Frequently Asked Questions',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             ListView.builder(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: _faqs.length,
               itemBuilder: (context, index) {
                 final faq = _faqs[index];
                 return Card(
                   elevation: 2,
-                  margin: EdgeInsets.symmetric(vertical: 5),
+                  margin: const EdgeInsets.symmetric(vertical: 5),
                   child: ExpansionTile(
                     title: Text(
                       faq['question']!,
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     children: [
                       Padding(
