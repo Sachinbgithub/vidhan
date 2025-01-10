@@ -1,156 +1,25 @@
-// import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:flutter/material.dart';
-// import 'package:firebase_core/firebase_core.dart';
-// import 'dart:async';
-// import 'package:google_fonts/google_fonts.dart';
-// import 'package:shared_preferences/shared_preferences.dart'; // Import SharedPreferences
-// import 'package:vidhan/content/facts.dart';
-// import 'package:vidhan/content/principles/temp_part_III.dart';
-//
-// import 'package:vidhan/content/principles/see_all.dart';
-// import 'package:vidhan/games/quize/screens/quiz_screen.dart';
-// import 'package:vidhan/games/snakes/snakes_ladders.dart';
-// import 'package:vidhan/pages/homepage.dart';
-// import 'package:vidhan/pages/settings_page.dart';
-// import 'package:vidhan/pages/splashscreen.dart';
-// import 'package:vidhan/pages/userAuth/login_page.dart';
-// import 'package:vidhan/utility/bottom_nav.dart';
-//
-// import 'content/principles/part_4.dart';
-// import 'content/principles/part_5.dart';
-// import 'content/principles/principles_quize/screens/quiz_screen.dart';
-// import 'games/courtRoom/courtroom.dart';
-// import 'games/educandy.dart';
-//
-// void main() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await Firebase.initializeApp(
-//     options: const FirebaseOptions(
-//       apiKey: 'AIzaSyCyJsWqNsHnu9WgDdWrEb5NvdS7r9CwJfY',
-//       appId: '1:861451830242:android:2b4a8190de6ac086756fbb',
-//       messagingSenderId: '861451830242',
-//       projectId: 'vidhan-865c0',
-//     ),
-//   );
-//
-//   // Load saved theme preference
-//   final prefs = await SharedPreferences.getInstance();
-//   final isDarkMode = prefs.getBool('isDarkMode') ?? false;
-//
-//   runApp(MyApp(isDarkMode: isDarkMode)); // Pass the theme preference to MyApp
-// }
-//
-// class MyApp extends StatefulWidget {
-//   final bool isDarkMode;
-//
-//   const MyApp({super.key, required this.isDarkMode});
-//
-//   @override
-//   _MyAppState createState() => _MyAppState();
-// }
-//
-// class _MyAppState extends State<MyApp> {
-//   late bool _isDarkMode;
-//
-//   @override
-//   void initState() {
-//     super.initState();
-//     _isDarkMode = widget.isDarkMode; // Initialize _isDarkMode with passed value
-//   }
-//
-//   void toggleTheme() async {
-//     setState(() {
-//       _isDarkMode = !_isDarkMode;
-//     });
-//     // Save the new theme preference
-//     final prefs = await SharedPreferences.getInstance();
-//     prefs.setBool('isDarkMode', _isDarkMode);
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       theme: _isDarkMode ? ThemeData.dark() : ThemeData.light(),
-//       darkTheme: ThemeData.dark(),
-//       themeMode: _isDarkMode ? ThemeMode.dark : ThemeMode.light,
-//       home: SplashScreenWrapper(
-//         toggleTheme: toggleTheme,
-//         isDarkMode: _isDarkMode,
-//       ),
-//       routes: {
-//         '/home': (context) => const HomePage(),
-//         '/login': (context) => const LoginPage(),
-//         '/quize': (context) => const QuizScreen(),
-//         '/snake': (context) => const GameHome(),
-//         '/edu': (context) => const WebViewExample(),
-//         '/part_4': (context) => DutiesAndPrinciplesPage(),
-//         '/part_5': (context) => UnionPage(),
-//         '/facts': (context) => Facts(),
-//         '/part_3': (context) => RightsPage2(),
-//         '/web': (context) => const WebViewExample(),
-//         '/seeall': (context) => const SeeAll(),
-//         '/nav': (context) => const BottomNav(),
-//         '/courtroom': (context) => CourtroomGameApp(),
-//       },
-//     );
-//   }
-// }
-//
-// class SplashScreenWrapper extends StatefulWidget {
-//   final Function toggleTheme;
-//   final bool isDarkMode;
-//
-//   const SplashScreenWrapper(
-//       {super.key, required this.toggleTheme, required this.isDarkMode});
-//
-//   @override
-//   State<SplashScreenWrapper> createState() => _SplashScreenWrapperState();
-// }
-//
-// class _SplashScreenWrapperState extends State<SplashScreenWrapper> {
-//   @override
-//   void initState() {
-//     super.initState();
-//     Timer(const Duration(seconds: 5), () {
-//       FirebaseAuth.instance.authStateChanges().listen((User? user) {
-//         if (user != null) {
-//           Navigator.pushReplacementNamed(context, '/nav');
-//         } else {
-//           Navigator.pushReplacementNamed(context, '/login');
-//         }
-//       });
-//     });
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return const SplashScreen();
-//   }
-// }
-
-
-
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:vidhan/content/facts.dart';
 import 'package:vidhan/content/principles/temp_part_III.dart';
-
 import 'package:vidhan/content/principles/see_all.dart';
 import 'package:vidhan/pages/homepage.dart';
 import 'package:vidhan/utility/splashscreen.dart';
 import 'package:vidhan/pages/userAuth/login_page.dart';
 import 'package:vidhan/pages/userAuth/signup_db.dart';
 import 'package:vidhan/utility/bottom_nav.dart';
-
+import 'content/facts_test.dart';
 import 'content/principles/part_4.dart';
 import 'content/principles/part_5.dart';
+import 'content/principles/video.dart';
 import 'games/courtRoom/test.dart';
+import 'games/courtRoom/test2.dart';
 import 'games/educandy.dart';
 import 'games/quize/daily_quize.dart';
 import 'games/quize/quiz_test.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -195,14 +64,14 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/home': (context) => const HomePage(),
         '/login': (context) => const LoginPage(),
-        '/signup': (context) => const SignUpPage(),
+        '/signup': (BuildContext context) => SignUpPage(),
         '/quize': (context) => const DailyConstitutionQuiz(),
         '/quiz_test': (context) => const ConstitutionQuiz(),
         '/edu': (context) => const WebViewExample(),
         '/part_4': (context) =>  DutiesAndPrinciplesPage(),
         '/part_5': (context) =>  UnionPage(),
-        '/facts': (context) => const Facts(),
-        '/part_3': (context) =>  RightsPage2(),
+        '/facts': (context) => const EnhancedConstitutionFactsPage(),
+        '/part_3': (context) =>  ConstitutionalRightsPage(),
         '/web': (context) => const WebViewExample(),
         '/seeall': (context) => const SeeAll(),
         // '/settings': (context) =>

@@ -31,7 +31,7 @@ class _Chat_BotState extends State<Chat_Bot> {
     super.initState();
     _model = GenerativeModel(
       model: 'gemini-pro',
-      apiKey: 'AIzaSyC8Tk0-buF_AYwX8Eii7KHiPJkitWpU7ng',
+      apiKey: 'AIzaSyDv1CWLgk8whoevH2gh6SBLO7PQwCqgaNc',
     );
     _chatSession = _model.startChat();
   }

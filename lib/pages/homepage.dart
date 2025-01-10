@@ -432,39 +432,39 @@ class _HomePageState extends State<HomePage> {
                               ),
 
                             ),
-                            const Text("Court Room \n     Beta", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15 ),)
+                            const Text("Court Room", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15 ),)
                           ],
                         ),
                       )  ,
-                      const Spacer(),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              Navigator.pushNamed(context, '/quiz_test')
-                                  as Route<Object?>);
-                        },
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 100,
-                              width: 100,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  // color: Colors.black38,
-                                  image: const DecorationImage(
-                                    image: AssetImage('assets/run2.png'),
-                                    // Replace with your background image path
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const Text("Vidhan Run \n      Beta", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15 ),)
-                          ],
-                        ),
-                      ),
+                      // const Spacer(),
+                      // GestureDetector(
+                      //   onTap: () {
+                      //     Navigator.push(
+                      //         context,
+                      //         Navigator.pushNamed(context, '/quiz_test')
+                      //             as Route<Object?>);
+                      //   },
+                      //   child: Column(
+                      //     children: [
+                      //       SizedBox(
+                      //         height: 100,
+                      //         width: 100,
+                      //         child: Container(
+                      //           decoration: BoxDecoration(
+                      //             borderRadius: BorderRadius.circular(10),
+                      //             // color: Colors.black38,
+                      //             image: const DecorationImage(
+                      //               image: AssetImage('assets/run2.png'),
+                      //               // Replace with your background image path
+                      //               fit: BoxFit.cover,
+                      //             ),
+                      //           ),
+                      //         ),
+                      //       ),
+                      //       const Text("Vidhan Run \n      Beta", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15 ),)
+                      //     ],
+                      //   ),
+                      // ),
                       const Spacer(),
                       GestureDetector(
                         onTap: () {

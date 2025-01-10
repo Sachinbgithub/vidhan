@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vidhan/content/principles/video.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../video_player_page.dart';
@@ -298,15 +299,13 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
                                         ElevatedButton(
                                           onPressed: () {
                                             // _showVideo('18Qy9EZrF9Y');
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const YoutubeVideoPlayer(
-                                                        videoId:
-                                                            '18Qy9EZrF9Y'), // Replace with your video ID
-                                              ),
-                                            );
+                                            // Navigator.push(
+                                            //     builder: (context) =>
+                                            //         const YoutubeVideoPlayer(
+                                            //             videoId:
+                                            //                 '18Qy9EZrF9Y'), // Replace with your video ID
+                                            //
+                                            // );
                                           },
                                           child: const Text('Watch'),
                                         ),
