@@ -164,7 +164,7 @@ class GeminiService {
 
     // This is where you'd make your actual API call
     // For example:
-    final response = ('AIzaSyC8Tk0-buF_AYwX8Eii7KHiPJkitWpU7ng', body: { 'article': article });
+    // final response = ('AIzaSyC8Tk0-buF_AYwX8Eii7KHiPJkitWpU7ng', body: { 'article': article });
 
     // Return mock response
     return "This is a detailed explanation for $article from Gemini AI.";

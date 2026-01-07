@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:vidhan/content/facts.dart';
-import 'package:vidhan/content/principles/temp_part_III.dart';
 import 'package:vidhan/content/principles/see_all.dart';
 import 'package:vidhan/pages/homepage.dart';
 import 'package:vidhan/utility/splashscreen.dart';
@@ -15,11 +13,9 @@ import 'content/principles/part_4.dart';
 import 'content/principles/part_5.dart';
 import 'content/principles/video.dart';
 import 'games/courtRoom/test.dart';
-import 'games/courtRoom/test2.dart';
 import 'games/educandy.dart';
 import 'games/quize/daily_quize.dart';
 import 'games/quize/quiz_test.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

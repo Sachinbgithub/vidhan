@@ -57,17 +57,16 @@ dependencies:
   provider:
   firebase_core:
   firebase_auth:
-  google_generative_ai: ^0.4.6
+  google_generative_ai:
   cloud_firestore:
 
   youtube_player_flutter: any
   smooth_page_indicator:
+  flutter_dotenv: ^5.2.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  firebase_storage: ^12.2.0
-  fluttertoast: ^8.2.8
-  flutter_dotenv: ^5.2.1
+  fluttertoast:
 
   flutter_lints: ^3.0.0
 

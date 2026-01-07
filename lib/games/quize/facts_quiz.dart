@@ -272,7 +272,6 @@ class _FactsQuizState extends State<FactsQuiz> {
           .doc(user.uid)
           .get();
 
-      final lastQuizDate = userDoc.data()?['lastDailyQuizDate'];
       _currentStreak = userDoc.data()?['dailyStreak'] ?? 0;
 
       // Generate daily questions
@@ -315,36 +314,6 @@ class _FactsQuizState extends State<FactsQuiz> {
     });
   }
 
-  void _showResultDialog() {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) => AlertDialog(
-        title: const Text('Quiz Completed!'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text('Your score: $_score/${_dailyQuestions.length}'),
-            const SizedBox(height: 10),
-            Text(
-              _score >= 7 ? 'Excellent! 🎉' :
-              _score >= 5 ? 'Good effort! 👍' : 'Keep learning! 💪',
-            ),
-            const SizedBox(height: 16),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, '/nav', (route) => false);
-            },
-            child: const Text('Finish'),
-          ),
-        ],
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {

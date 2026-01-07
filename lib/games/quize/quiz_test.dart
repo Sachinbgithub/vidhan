@@ -15,7 +15,6 @@ class _ConstitutionQuizState extends State<ConstitutionQuiz> {
   int _score = 0;
   bool _answered = false;
   int? _selectedAnswerIndex;
-  List<Map<String, dynamic>> _dailyQuestions = [];
 
   final List<Map<String, dynamic>> _questions = [
     {
@@ -92,10 +91,6 @@ class _ConstitutionQuizState extends State<ConstitutionQuiz> {
 
   void _checkAnswer(int selectedIndex) {
     if (_answered) return;
-
-    final shuffledQuestions = List<Map<String, dynamic>>.from(_questions)
-      ..shuffle();
-    _dailyQuestions = shuffledQuestions.take(10).toList();
 
     setState(() {
       _selectedAnswerIndex = selectedIndex;

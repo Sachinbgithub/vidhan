@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 import 'models/difficulty_level.dart';
 import 'models/constitutional_article.dart';
-import 'models/case_history.dart';
 import 'models/evidence_detail.dart';
-import 'models/game_progress.dart';
-import 'widgets/animated_court_hammer.dart';
-import 'widgets/evidence_card.dart';
-import 'widgets/constitutional_article_card.dart';
-import 'theme/court_theme.dart';
 
 
 // class Case {

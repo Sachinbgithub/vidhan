@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vidhan/content/principles/video.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
-import '../video_player_page.dart';
 
 class RightsPage2 extends StatelessWidget {
   final List<String> rights = [
@@ -168,7 +165,6 @@ class ArticleDetailPage extends StatefulWidget {
 }
 
 class _ArticleDetailPageState extends State<ArticleDetailPage> {
-  bool _isVideoVisible = false;
   YoutubePlayerController? _controller;
 // Function to show the video
   void _showVideo(String videoId) {
@@ -180,7 +176,6 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
           mute: false,
         ),
       );
-      _isVideoVisible = true;
     });
   }
 
@@ -298,7 +293,7 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
                                         ),
                                         ElevatedButton(
                                           onPressed: () {
-                                            // _showVideo('18Qy9EZrF9Y');
+                                            _showVideo('18Qy9EZrF9Y');
                                             // Navigator.push(
                                             //     builder: (context) =>
                                             //         const YoutubeVideoPlayer(

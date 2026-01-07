@@ -147,21 +147,7 @@ class ArticleDetailPage extends StatefulWidget {
 }
 
 class _ArticleDetailPageState extends State<ArticleDetailPage> {
-  bool _isVideoVisible = false;
   YoutubePlayerController? _controller;
-// Function to show the video
-  void _showVideo(String videoId) {
-    setState(() {
-      _controller = YoutubePlayerController(
-        initialVideoId: videoId,
-        flags: const YoutubePlayerFlags(
-          autoPlay: true,
-          mute: false,
-        ),
-      );
-      _isVideoVisible = true;
-    });
-  }
 
   @override
   void dispose() {

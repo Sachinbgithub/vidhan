@@ -11,8 +11,6 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   bool _isDarkMode = false;
-  final String _selectedLanguage = 'English';
-  final List<String> _languages = ['English', 'Marathi', 'Hindi'];
 
   @override
   Widget build(BuildContext context) {

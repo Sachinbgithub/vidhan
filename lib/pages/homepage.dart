@@ -12,41 +12,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final bool _isDarkMode = false;
   String _selectedLanguage = 'English';
   final List<String> _languages = ['English', 'Marathi', 'Hindi'];
 
-  Widget _buildSectionHeader(String title) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
-      child: Text(
-        title,
-        style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-      ),
-    );
-  }
-  Widget _buildLanguageDropdown() {
-    return DropdownButtonFormField<String>(
-      value: _selectedLanguage,
-      decoration: InputDecoration(
-        border: const OutlineInputBorder(),
-        filled: true,
-        fillColor: Colors.grey[200],
-        labelText: 'Select Language',
-      ),
-      onChanged: (String? newValue) {
-        setState(() {
-          _selectedLanguage = newValue!;
-        });
-      },
-      items: _languages.map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-    );
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -693,7 +661,7 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return const Chat_Bot();
+        return const ChatBot();
         // return
         // AlertDialog(
         //   title: Text("Ask a Question"),

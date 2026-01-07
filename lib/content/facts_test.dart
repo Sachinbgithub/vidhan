@@ -15,7 +15,7 @@ class _EnhancedConstitutionFactsPageState
     extends State<EnhancedConstitutionFactsPage> with TickerProviderStateMixin {
   int _currentSlide = 0;
   late TabController _tabController;
-  bool _isFavorite = false;
+  final PageController _pageController = PageController();
 
   final List<Map<String, dynamic>> quickFacts = [
     {
@@ -106,6 +106,7 @@ class _EnhancedConstitutionFactsPageState
   @override
   void dispose() {
     _tabController.dispose();
+    _pageController.dispose();
     super.dispose();
   }
 
@@ -251,6 +252,11 @@ class _EnhancedConstitutionFactsPageState
               setState(() {
                 _currentSlide = index;
               });
+              _pageController.animateToPage(
+                index,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+              );
             },
           ),
           itemBuilder: (context, index, realIndex) {
@@ -296,8 +302,8 @@ class _EnhancedConstitutionFactsPageState
           },
         ),
         const SizedBox(height: 8),
-        AnimatedSmoothIndicator(
-          activeIndex: _currentSlide,
+        SmoothPageIndicator(
+          controller: _pageController,
           count: carouselItems.length,
           effect: WormEffect(
             dotHeight: 8,
