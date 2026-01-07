@@ -29,9 +29,8 @@ rootProject.buildDir = '../build'
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
-subprojects {
-    project.evaluationDependsOn(':app')
-}
+// Removed evaluationDependsOn to prevent circular dependencies and plugin lifecycle errors
+// This was causing task creation failures for flutter_plugin_android_lifecycle
 
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
