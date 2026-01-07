@@ -54,26 +54,20 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
-
+  provider:
   firebase_core:
   firebase_auth:
-  google_generative_ai: ^0.4.6
+  google_generative_ai:
   cloud_firestore:
 
+  youtube_player_flutter: any
+  smooth_page_indicator:
+  flutter_dotenv: ^5.2.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  firebase_storage: ^12.2.0
-  fluttertoast: ^8.2.8
+  fluttertoast:
 
-  youtube_player_flutter: ^9.0.3
-
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^3.0.0
 
 # For information on the generic Dart part of this file, see the

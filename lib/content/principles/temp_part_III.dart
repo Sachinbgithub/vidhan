@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
-import '../video_player_page.dart';
 
 class RightsPage2 extends StatelessWidget {
   final List<String> rights = [
@@ -56,6 +53,8 @@ class RightsPage2 extends StatelessWidget {
     ],
   };
 
+   RightsPage2({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +75,7 @@ class RightsPage2 extends StatelessWidget {
                     right: right,
                     description: rightDescriptions[right]!,
                     articles: articles[right]!);
-              }).toList(),
+              }),
             ],
           ),
         ),
@@ -92,12 +91,11 @@ class DutyCard extends StatelessWidget {
   // bool _isVideoVisible = false;
   // YoutubePlayerController? _controller;
 
-  DutyCard(
-      {Key? key,
+  const DutyCard(
+      {super.key,
       required this.right,
       required this.description,
-      required this.articles})
-      : super(key: key);
+      required this.articles});
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +113,7 @@ class DutyCard extends StatelessWidget {
           Card(
         // color: Colors.amber,
         // color: Colors.blue[800],
-        color: Color(0xFFACB3D5),
+        color: const Color(0xFFACB3D5),
         elevation: 100,
         margin: const EdgeInsets.symmetric(vertical: 8),
         child: Padding(
@@ -142,7 +140,7 @@ class DutyCard extends StatelessWidget {
               ),
               Text(
                 description,
-                style: TextStyle(fontSize: 14, color: Colors.black45),
+                style: const TextStyle(fontSize: 14, color: Colors.black45),
               ),
             ],
           ),
@@ -157,8 +155,8 @@ class ArticleDetailPage extends StatefulWidget {
   final String description;
   final List<String> articles;
 
-  ArticleDetailPage(
-      {required this.article,
+  const ArticleDetailPage(
+      {super.key, required this.article,
       required this.description,
       required this.articles});
 
@@ -167,19 +165,17 @@ class ArticleDetailPage extends StatefulWidget {
 }
 
 class _ArticleDetailPageState extends State<ArticleDetailPage> {
-  bool _isVideoVisible = false;
   YoutubePlayerController? _controller;
 // Function to show the video
   void _showVideo(String videoId) {
     setState(() {
       _controller = YoutubePlayerController(
         initialVideoId: videoId,
-        flags: YoutubePlayerFlags(
+        flags: const YoutubePlayerFlags(
           autoPlay: true,
           mute: false,
         ),
       );
-      _isVideoVisible = true;
     });
   }
 
@@ -202,14 +198,14 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
         child: Container(
           decoration: BoxDecoration(
             // color: Colors.blue, // Light grey background
-            color: Color(0xFFACB3D5),
+            color: const Color(0xFFACB3D5),
             borderRadius: BorderRadius.circular(16),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Colors.grey,
                 spreadRadius: 10.0,
                 blurRadius: 10.0,
-                offset: const Offset(3.1, 2), // changes position of shadow
+                offset: Offset(3.1, 2), // changes position of shadow
               ),
             ],
           ),
@@ -297,42 +293,16 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
                                         ),
                                         ElevatedButton(
                                           onPressed: () {
-                                            // _showVideo('18Qy9EZrF9Y');
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    YoutubeVideoPlayer(
-                                                        videoId:
-                                                            '18Qy9EZrF9Y'), // Replace with your video ID
-                                              ),
-                                            );
+                                            _showVideo('18Qy9EZrF9Y');
+                                            // Navigator.push(
+                                            //     builder: (context) =>
+                                            //         const YoutubeVideoPlayer(
+                                            //             videoId:
+                                            //                 '18Qy9EZrF9Y'), // Replace with your video ID
+                                            //
+                                            // );
                                           },
                                           child: const Text('Watch'),
-                                        ),
-                                        // if (_isVideoVisible && _controller != null)
-                                        //   SizedBox(
-                                        //     width: 300, // Set your desired width here
-                                        //     height: 200, // Set your desired height here
-                                        //     child: YoutubePlayer(
-                                        //       controller: _controller!,
-                                        //       showVideoProgressIndicator: true,
-                                        //       onReady: () {
-                                        //         print('Player is ready.');
-                                        //       },
-                                        //     ), ),
-                                        ElevatedButton(
-                                          onPressed: () {
-                                            Navigator.push(
-                                                context,
-                                                Navigator.pushNamed(
-                                                        context, '/quize')
-                                                    as Route<Object?>);
-                                            // Handle Bookmark action
-                                            print(
-                                                'Bookmark tapped for $subArticle');
-                                          },
-                                          child: const Text('Quiz'),
                                         ),
                                       ],
                                     ),
@@ -341,7 +311,7 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
                               ),
                             ),
                           ))
-                      .toList(),
+                      ,
 
                   const SizedBox(height: 20),
                   ElevatedButton(
@@ -361,7 +331,7 @@ class _ArticleDetailPageState extends State<ArticleDetailPage> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    child: Center(child: Text("Play Quize")),
+                    child: const Center(child: Text("Play Quize")),
                   ),
                 ]),
               ],

@@ -1,10 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vidhan/Chatbot/chatbot.dart';
-import 'chat.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,41 +12,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool _isDarkMode = false;
   String _selectedLanguage = 'English';
   final List<String> _languages = ['English', 'Marathi', 'Hindi'];
 
-  Widget _buildSectionHeader(String title) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
-      child: Text(
-        title,
-        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-      ),
-    );
-  }
-  Widget _buildLanguageDropdown() {
-    return DropdownButtonFormField<String>(
-      value: _selectedLanguage,
-      decoration: InputDecoration(
-        border: OutlineInputBorder(),
-        filled: true,
-        fillColor: Colors.grey[200],
-        labelText: 'Select Language',
-      ),
-      onChanged: (String? newValue) {
-        setState(() {
-          _selectedLanguage = newValue!;
-        });
-      },
-      items: _languages.map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-    );
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +30,7 @@ class _HomePageState extends State<HomePage> {
                 "V I D H A N",
                 style: GoogleFonts.poppins(
                   // Use any Google Font here, like Poppins
-                  textStyle: TextStyle(
+                  textStyle: const TextStyle(
                     fontSize: 40, // Adjust font size as needed
                     fontWeight: FontWeight.w500,
                     color: Colors.black54,
@@ -244,7 +209,7 @@ class _HomePageState extends State<HomePage> {
                 //     ),
                 //   ],
                 // ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 // Stack(
@@ -299,7 +264,7 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage('assets/img_15.png'),
                           fit: BoxFit.cover,
                         ),
@@ -421,7 +386,7 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Column(
                           children: [
-                            Container(
+                            SizedBox(
                               height: 100,
                               width: 100,
                               child: Container(
@@ -435,40 +400,40 @@ class _HomePageState extends State<HomePage> {
                               ),
 
                             ),
-                            Text("Court Room \n     Beta", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15 ),)
+                            const Text("Court Room", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15 ),)
                           ],
                         ),
                       )  ,
-                      Spacer(),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              Navigator.pushNamed(context, '/quiz_test')
-                                  as Route<Object?>);
-                        },
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 100,
-                              width: 100,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  // color: Colors.black38,
-                                  image: const DecorationImage(
-                                    image: AssetImage('assets/run2.png'),
-                                    // Replace with your background image path
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Text("Vidhan Run \n      Beta", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15 ),)
-                          ],
-                        ),
-                      ),
-                      Spacer(),
+                      // const Spacer(),
+                      // GestureDetector(
+                      //   onTap: () {
+                      //     Navigator.push(
+                      //         context,
+                      //         Navigator.pushNamed(context, '/quiz_test')
+                      //             as Route<Object?>);
+                      //   },
+                      //   child: Column(
+                      //     children: [
+                      //       SizedBox(
+                      //         height: 100,
+                      //         width: 100,
+                      //         child: Container(
+                      //           decoration: BoxDecoration(
+                      //             borderRadius: BorderRadius.circular(10),
+                      //             // color: Colors.black38,
+                      //             image: const DecorationImage(
+                      //               image: AssetImage('assets/run2.png'),
+                      //               // Replace with your background image path
+                      //               fit: BoxFit.cover,
+                      //             ),
+                      //           ),
+                      //         ),
+                      //       ),
+                      //       const Text("Vidhan Run \n      Beta", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15 ),)
+                      //     ],
+                      //   ),
+                      // ),
+                      const Spacer(),
                       GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -478,7 +443,7 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Column(
                           children: [
-                            Container(
+                            SizedBox(
 
                               height: 100,
                               width: 100,
@@ -493,32 +458,32 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                             ),
-                            Text("More Games", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15 ),)
+                            const Text("More Games", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15 ),)
                           ],
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
 
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 Row(
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 10),
                       child: Container(
-                        child: Text(
+                        child: const Text(
                           "Constitution",
                           style: TextStyle(fontSize: 25,
                           fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     TextButton(
                         onPressed: () {
                           Navigator.push(
@@ -526,7 +491,7 @@ class _HomePageState extends State<HomePage> {
                               Navigator.pushNamed(context, '/seeall')
                                   as Route<Object?>);
                         },
-                        child: Text(
+                        child: const Text(
                           "See all",
                           style: TextStyle(
                             fontSize: 20,
@@ -534,7 +499,7 @@ class _HomePageState extends State<HomePage> {
                         ))
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Padding(
@@ -549,9 +514,9 @@ class _HomePageState extends State<HomePage> {
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                        color:Color(0xFFACB3D5),
+                        color:const Color(0xFFACB3D5),
                         borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage('assets/partIII.png'),
                           fit: BoxFit.cover,
                         ),
@@ -563,10 +528,10 @@ class _HomePageState extends State<HomePage> {
                           alignment: Alignment.centerLeft,
                           width: double.infinity,
                           height: 100,
-                          child: Column(
+                          child: const Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Container(
+                              SizedBox(
                                 width: 200,
                                 child: Text(
                                   "Part III: \nBasic Human Rights & Duties",
@@ -613,10 +578,10 @@ class _HomePageState extends State<HomePage> {
                           alignment: Alignment.centerLeft,
                           width: double.infinity,
                           height: 100,
-                          child: Column(
+                          child: const Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Container(
+                              SizedBox(
                                 width: 200,
                                 child: Text(
                                   "Part IV: \nDirective Principles of State Policy",
@@ -663,10 +628,10 @@ class _HomePageState extends State<HomePage> {
                           alignment: Alignment.centerLeft,
                           width: double.infinity,
                           height: 100,
-                          child: Column(
+                          child: const Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Container(
+                              SizedBox(
                                 width: 200,
                                 child: Text(
                                   "Part V: \nThe Union",
@@ -696,7 +661,7 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return const Chat_Bot();
+        return const ChatBot();
         // return
         // AlertDialog(
         //   title: Text("Ask a Question"),

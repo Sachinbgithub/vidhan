@@ -1,39 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
-import 'package:vidhan/Chatbot/msg_widget.dart';
+import 'package:vidhan/Chatbot/msg_widget.dart'; // Ensure this path is correct
 
-class Chat_Bot extends StatefulWidget {
-  const Chat_Bot({super.key});
+class ChatBot extends StatefulWidget {
+  const ChatBot({super.key});
 
   @override
-  State<Chat_Bot> createState() => _Chat_BotState();
+  State<ChatBot> createState() => _ChatBotState();
 }
 
-class _Chat_BotState extends State<Chat_Bot> {
-  late final GenerativeModel _model;
-  late final ChatSession _chatSession;
-  final FocusNode _textFielFocus = FocusNode();
+class _ChatBotState extends State<ChatBot> {
+  late GenerativeModel _model;
+  ChatSession? _chatSession; // Make _chatSession nullable
+  final FocusNode _textFieldFocus = FocusNode();
   final TextEditingController _textController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   bool _loading = false;
+  String _outputText = ''; // Added for displaying errors/status
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _model = GenerativeModel(
-  //     model: 'gemini-pro', apiKey: const String.fromEnvironment('api_key'),
-  //   );
-  //   _chatSession = _model.startChat();
-  // }
+  final String _apiKey =
+      'AIzaSyDQale7h_xn3F2dqz62V7u-6pw5DuKyRY4';
 
   @override
   void initState() {
     super.initState();
-    _model = GenerativeModel(
-      model: 'gemini-pro',
-      apiKey: 'AIzaSyC8Tk0-buF_AYwX8Eii7KHiPJkitWpU7ng',
-    );
-    _chatSession = _model.startChat();
+    _initializeGemini(); // Initialize Gemini in initState
+  }
+
+  // Separate Gemini initialization
+  Future<void> _initializeGemini() async {
+    try {
+      _model = GenerativeModel(model: 'gemini-2.0-flash', apiKey: _apiKey);
+      _chatSession = _model.startChat();
+      _outputText = 'Chatbot initialized.'; //update _outputText
+    } catch (e) {
+      _outputText = 'Error initializing Gemini: $e';
+      print('Error initializing Gemini: $e'); // Keep the print for detailed logs
+      // Consider showing a dialog here as well, to inform the user on startup
+      if (mounted) {
+        //check mounted
+        _showError('Failed to initialize chatbot: $e');
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _textController.dispose();
+    _textFieldFocus.dispose();
+    _scrollController.dispose();
+    // _chatSession?.dispose(); // Dispose the chat session if it's not null
+    super.dispose();
   }
 
   @override
@@ -45,155 +62,181 @@ class _Chat_BotState extends State<Chat_Bot> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Expanded(
-            //   child: ListView.builder(
-            //     controller: _scrollController,
-            //     itemCount: _chatSession.history.length,
-            //     itemBuilder: (context, index) {
-            //       final Content content = _chatSession.history.toList()[index];
-            //       final text = content.parts
-            //           .whereType<TextPart>()
-            //           .map<String>((e) => e.text)
-            //           .join('');
-            //       return msg_widget(
-            //         text: text,
-            //         isFromUser: content.role == 'user',
-            //         userColor: Color(0xFF6200EE), // Custom purple for user
-            //         botColor: Color(0xFF03DAC6),
-            //       );
-            //     },
-            //   ),
-            // ),
-
             Expanded(
-              child: ListView.builder(
-                controller: _scrollController,
-                itemCount: _chatSession.history.length,
-                itemBuilder: (context, index) {
-                  final Content content = _chatSession.history.toList()[index];
-                  final text = content.parts
-                      .whereType<TextPart>()
-                      .map<String>((e) => e.text)
-                      .join('');
-                  return MsgWidget(
-                    text: text,
-                    isFromUser: content.role == 'user',
-                    userColor: Color(0xFF9E9D9F),
-                    // Custom purple for user messages
-                    botColor: Color(0xFFE1E1F6), // Custom teal for bot messages
-                  );
-                },
-              ),
+              child: _buildChatHistory(), //separate widget
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: 25,
-                horizontal: 15,
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      autofocus: true,
-                      focusNode: _textFielFocus,
-                      decoration: textFielDecoration(),
-                      controller: _textController,
-                      onSubmitted: _sendChatMessage,
-                    ),
+            _buildInputArea(), //separate widget
+            if (_loading) const LinearProgressIndicator(), // Show loading indicator
+            if (_outputText.isNotEmpty &&
+                !_loading) //show status/error
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Text(
+                  _outputText,
+                  style: TextStyle(
+                    color: _outputText.startsWith('Error')
+                        ? Colors.red
+                        : Colors
+                        .grey, //simple error message.
                   ),
-                  const SizedBox(width: 10), // Adjusted spacing
-                  TextButton(
-                    onPressed: () {
-                      if (_textController.text.isNotEmpty) {
-                        _sendChatMessage(_textController.text);
-                      }
-                    },
-                    child: const Text('Send'),
-                  ),
-                ],
+                ),
               ),
-            ),
           ],
         ),
       ),
     );
   }
 
-  InputDecoration textFielDecoration() {
+  //build chat history
+  Widget _buildChatHistory() {
+    return ListView.builder(
+      controller: _scrollController,
+      itemCount: _chatSession?.history.length ??
+          0, // Use null-aware length, and handle null case.
+      itemBuilder: (context, index) {
+        // Use null-aware access.  If _chatSession is null, return an empty widget.
+        if (_chatSession == null) {
+          return const SizedBox(); // Or a Text("Chat session not initialized");
+        }
+        final Content content = _chatSession!.history.toList()[index];
+        final text = content.parts
+            .whereType<TextPart>()
+            .map<String>((e) => e.text)
+            .join('');
+        return MsgWidget(
+          text: text,
+          isFromUser: content.role == 'user',
+          userColor: const Color(
+              0xFF9E9D9F), // Consistent color definitions.  Consider moving to constants.
+          botColor: const Color(0xFFE1E1F6),
+        );
+      },
+    );
+  }
+
+  //build input area
+  Widget _buildInputArea() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        vertical: 25,
+        horizontal: 15,
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: TextField(
+              autofocus: true,
+              focusNode: _textFieldFocus,
+              decoration: _textFieldDecoration(),
+              controller: _textController,
+              onSubmitted: _handleSendMessage, //use new function
+            ),
+          ),
+          const SizedBox(width: 10),
+          TextButton(
+            onPressed: () {
+              if (_textController.text.isNotEmpty) {
+                _handleSendMessage(_textController.text); //use new function
+              }
+            },
+            child: const Text('Send'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  InputDecoration _textFieldDecoration() {
     return InputDecoration(
       contentPadding: const EdgeInsets.all(15),
-      hintText: 'enter a query..',
-      border: OutlineInputBorder(
-        borderRadius: const BorderRadius.all(
+      hintText: 'Enter a query..',
+      border: const OutlineInputBorder(
+        borderRadius: BorderRadius.all(
           Radius.circular(14),
         ),
         borderSide: BorderSide(
-          color: Theme.of(context).colorScheme.secondary,
+          color: Colors.grey, // Use theme if available
         ),
       ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: const BorderRadius.all(
+      focusedBorder: const OutlineInputBorder(
+        borderRadius: BorderRadius.all(
           Radius.circular(14),
         ),
         borderSide: BorderSide(
-          color: Theme.of(context).colorScheme.secondary,
+          color: Colors.blue, // Use theme if available
         ),
       ),
     );
   }
 
-  Future<void> _sendChatMessage(String message) async {
+  //centralize message sending
+  Future<void> _handleSendMessage(String message) async {
+    if (_loading) return; // Prevent sending new messages while loading
     setState(() {
       _loading = true;
+      _outputText = ''; // Clear any previous status
     });
 
     try {
-      final response = await _chatSession.sendMessage(
-        Content.text(message),
-      );
-      final text = response.text;
-      if (text == null) {
-        _showError('No response from API.');
-        return;
-      } else {
+      //check if chat session is null
+      if (_chatSession == null) {
+        _outputText =
+        'Chat session is not initialized.  Please restart the chat.';
         setState(() {
           _loading = false;
-          _scrollDown();
         });
+        return;
       }
+
+      final response = await _chatSession!.sendMessage(Content.text(message));
+      if (response.text == null) {
+        _showError('No response from the model.');
+        setState(() {
+          _loading = false;
+        });
+        return; // Important: Exit the function if there's an error
+      }
+      setState(() {
+        _outputText = '';
+      }); //clear
+      _scrollDown(); // Scroll after successful message
     } catch (e) {
-      _showError(e.toString());
+      _showError('Error sending message: $e');
       setState(() {
+        _outputText = 'Error sending message: $e';
         _loading = false;
       });
+      print("Error sending message $e");
     } finally {
-      _textController.clear();
       setState(() {
         _loading = false;
       });
-      _textFielFocus.requestFocus();
+      _textController.clear();
+      _textFieldFocus.requestFocus();
     }
   }
 
+  //extracted scroll down.
   void _scrollDown() {
-    WidgetsBinding.instance.addPostFrameCallback(
-      (_) => _scrollController.animateTo(
-        _scrollController.position.maxScrollExtent,
-        duration: const Duration(milliseconds: 750),
-        curve: Curves.easeOutCirc,
-      ),
-    );
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_scrollController.hasClients) {
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 300), //make it faster
+          curve: Curves.easeOut,
+        );
+      }
+    });
   }
 
+  // Error dialog.
   void _showError(String message) {
     showDialog<void>(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Something went wrong'),
+          title: const Text('Error'), //simple title
           content: SingleChildScrollView(
             child: SelectableText(message),
           ),
@@ -210,3 +253,4 @@ class _Chat_BotState extends State<Chat_Bot> {
     );
   }
 }
+

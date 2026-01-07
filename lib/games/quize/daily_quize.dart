@@ -530,7 +530,7 @@ class _DailyConstitutionQuizState extends State<DailyConstitutionQuiz> {
         child: ElevatedButton(
           onPressed: _answered ? null : () => _checkAnswer(index),
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
+            backgroundColor: WidgetStateProperty.resolveWith<Color>((states) {
               if (_answered) {
                 if (index == _dailyQuestions[_currentQuestionIndex]['correctAnswer']) {
                   return Colors.green;
@@ -541,7 +541,7 @@ class _DailyConstitutionQuizState extends State<DailyConstitutionQuiz> {
               }
               return Theme.of(context).primaryColor;
             }),
-            padding: MaterialStateProperty.all(
+            padding: WidgetStateProperty.all(
               const EdgeInsets.symmetric(vertical: 15),
             ),
           ),

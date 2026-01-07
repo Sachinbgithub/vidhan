@@ -1,18 +1,13 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:vidhan/pages/homepage.dart';
-import 'package:vidhan/pages/profile_page.dart';
+import 'package:vidhan/pages/leaderboard.dart';
 import 'package:vidhan/pages/settings_page.dart';
-import 'package:vidhan/pages/test.dart';
+import '../pages/profilepage.dart';
 
-import '../pages/profile_test.dart';
-// import '../pages/temp_profile.dart';
-import '../pages/profile_test2.dart';
-import '../pages/userAuth/leaderboard.dart';
-import '../pages/userAuth/temp_leader.dart';
 
 class BottomNav extends StatefulWidget {
-  const BottomNav({Key? key}) : super(key: key);
+  const BottomNav({super.key});
 
   @override
   _BottomNavState createState() => _BottomNavState();
@@ -40,22 +35,10 @@ class _BottomNavState extends State<BottomNav> {
             selectedindex = index;
           });
         },
-        children: [
+        children: const [
           HomePage(),
-          // ProfilePage(
-          //   name: 'sachin',
-          //   age: 22,
-          //   profilePictureUrl:
-          //       'https://i.pinimg.com/736x/9f/9f/bb/9f9fbb3b96703d08b68aaa8c34aba638.jpg',
-          //   progress: 75,
-          // ),
-          ProfilePageTest2(),
-          // ProfilePage(),
-          // ProfilePage(name: '', age: 18, profilePictureUrl: '', progress: 50,),
-          // LeaderboardPage(),
-          // EnhancedLeaderboardPage(),
-          LeaderboardWithDummyRanks(),
-          // ProfilePage2(),
+          ProfilePage(),
+          Leaderboard(),
           SettingsPage(),
         ],
       ),

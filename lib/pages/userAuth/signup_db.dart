@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:lottie/lottie.dart';
 import 'package:vidhan/pages/userAuth/form_controller_widget.dart'; // Adjust this import based on your project structure
 
-class SignUpPage2 extends StatefulWidget {
-  const SignUpPage2({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<SignUpPage2> createState() => _SignUpPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage2> {
+class _SignUpPageState extends State<SignUpPage> {
   bool _isSignup = false;
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
@@ -36,13 +37,19 @@ class _SignUpPageState extends State<SignUpPage2> {
         ),
         child: Stack(
           children: [
+            Positioned.fromRect(
+              rect: const Rect.fromLTWH(100, 10, 210, 250),
+              child: Lottie.network(
+                'https://lottie.host/6064e841-95af-485f-9d4a-77a0ea1ca795/bXWouOhFq6.json',
+              ),
+            ),
             Center(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Register", style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: Colors.white)),
+                    const Text("Register", style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: Colors.black45)),
                     const SizedBox(height: 30),
                     FormContainerWidget(controller: _usernameController, hintText: "Username", isPasswordField: false),
                     const SizedBox(height: 20),
@@ -89,7 +96,7 @@ class _SignUpPageState extends State<SignUpPage2> {
         await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
           'name': username,
           'email': email,
-          'profilePicture': '', // Default empty profile picture
+          // 'profilePicture': '', // Default empty profile picture
           'rewardPoints': 0, // Initial reward points
           'dailyStreak': 0, // Initial daily streak
         });

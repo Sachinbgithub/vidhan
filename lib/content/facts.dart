@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class Facts extends StatelessWidget {
+  const Facts({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Facts Display'),
-        backgroundColor: Color(0xFF8B4513), // Dark brown app bar color
+        title: const Text('Facts Display'),
+        backgroundColor: const Color(0xFF8B4513), // Dark brown app bar color
       ),
-      body: FactsPage(),
+      body:  FactsPage(),
     );
   }
 }
@@ -35,13 +37,15 @@ class FactsPage extends StatelessWidget {
     "The original Constitution of India was handwritten and calligraphed in both Hindi and English. The calligraphy was done by Prem Behari Narain Raizada. The original copies are preserved in special cases filled with helium in the Library of the Parliament of India.",
   ];
 
+   FactsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         // Background Image
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/download.jpeg'),
               // Your background image
@@ -57,12 +61,12 @@ class FactsPage extends StatelessWidget {
               options: CarouselOptions(
                 height: 350, // Increased height
                 autoPlay: true,
-                autoPlayInterval: Duration(seconds: 5),
+                autoPlayInterval: const Duration(seconds: 5),
                 enlargeCenterPage: true,
               ),
               items: images.map((image) {
                 return Container(
-                  margin: EdgeInsets.symmetric(horizontal: 2),
+                  margin: const EdgeInsets.symmetric(horizontal: 2),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
@@ -74,13 +78,13 @@ class FactsPage extends StatelessWidget {
               }).toList(),
             ),
 
-            SizedBox(height: 25), // Gap between slider and buttons
+            const SizedBox(height: 25), // Gap between slider and buttons
 
             // Information Buttons
             Column(
               children: List.generate(facts.length, (index) {
                 return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 8),
                   child: SizedBox(
                     width: double.infinity, // Make buttons full width
                     height: 90, // Fixed height for uniformity
@@ -98,7 +102,7 @@ class FactsPage extends StatelessWidget {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFFD2B48C),
+                        backgroundColor: const Color(0xFFD2B48C),
                         // Light brown button color
                         shape: RoundedRectangleBorder(
                           borderRadius:
@@ -114,7 +118,7 @@ class FactsPage extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           facts[index],
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 16,
                               color: Colors
                                   .black), // Dark text color for visibility
@@ -137,15 +141,14 @@ class FactDetailPage extends StatelessWidget {
   final String description;
 
   const FactDetailPage(
-      {Key? key, required this.articleTitle, required this.description})
-      : super(key: key);
+      {super.key, required this.articleTitle, required this.description});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(articleTitle),
-        backgroundColor: Color(0xFF8B4513), // Dark brown app bar color
+        backgroundColor: const Color(0xFF8B4513), // Dark brown app bar color
       ),
       body: ListView(
         children: [
@@ -153,7 +156,7 @@ class FactDetailPage extends StatelessWidget {
           children: [
             // Background Image for Detail Page
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/bg1.jpg'),
                   // Your background image for detail page
@@ -166,7 +169,7 @@ class FactDetailPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 80),
+                  const SizedBox(height: 80),
                   Text(articleTitle,
                       style: const TextStyle(
                           fontSize: 24, fontWeight: FontWeight.bold)),

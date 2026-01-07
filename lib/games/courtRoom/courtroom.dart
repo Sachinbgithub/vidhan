@@ -2,20 +2,24 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
 
-void main() => runApp(CourtroomGameApp());
+void main() => runApp(const CourtroomGameApp());
 
 class CourtroomGameApp extends StatelessWidget {
+  const CourtroomGameApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Courtroom Game',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: CourtroomGameScreen(),
+      home: const CourtroomGameScreen(),
     );
   }
 }
 
 class CourtroomGameScreen extends StatefulWidget {
+  const CourtroomGameScreen({super.key});
+
   @override
   _CourtroomGameScreenState createState() => _CourtroomGameScreenState();
 }
@@ -28,7 +32,7 @@ class _CourtroomGameScreenState extends State<CourtroomGameScreen> with SingleTi
   late Timer _countdownTimer;
 
   // Audio player for sound effects
-  AudioPlayer _audioPlayer = AudioPlayer();
+  final AudioPlayer _audioPlayer = AudioPlayer();
 
   // Example story content and questions
   final List<String> _storyParts = [
@@ -53,7 +57,7 @@ class _CourtroomGameScreenState extends State<CourtroomGameScreen> with SingleTi
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
     _animation = Tween<double>(begin: 1.0, end: 1.2).animate(_controller)
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
@@ -75,7 +79,7 @@ class _CourtroomGameScreenState extends State<CourtroomGameScreen> with SingleTi
 
   void _startTimer() {
     _timer = 30;
-    _countdownTimer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_timer > 0 && _showQuestion) {
         setState(() {
           _timer--;
@@ -126,7 +130,7 @@ class _CourtroomGameScreenState extends State<CourtroomGameScreen> with SingleTi
               Navigator.of(context).pop();
               _restartGame();
             },
-            child: Text('Restart Game'),
+            child: const Text('Restart Game'),
           ),
         ],
       ),
@@ -169,7 +173,7 @@ class _CourtroomGameScreenState extends State<CourtroomGameScreen> with SingleTi
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text("Courtroom Game"),
+        title: const Text("Courtroom Game"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -181,19 +185,19 @@ class _CourtroomGameScreenState extends State<CourtroomGameScreen> with SingleTi
               backgroundColor: Colors.grey,
               color: Colors.blueAccent,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               'Score: $_score',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             if (!_showQuestion)
               Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      image: DecorationImage(
+                      image: const DecorationImage(
                         image: AssetImage('assets/download.jpeg'),
                         fit: BoxFit.cover,
                       ),
@@ -202,26 +206,26 @@ class _CourtroomGameScreenState extends State<CourtroomGameScreen> with SingleTi
                     ),
                     child: Text(
                       _storyParts[_storyIndex],
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+                      style: const TextStyle(fontSize: 18, color: Colors.white),
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       if (_storyIndex > 0)
                         FloatingActionButton(
                           onPressed: _previousPart,
-                          child: Icon(Icons.arrow_back),
                           backgroundColor: Colors.grey,
+                          child: const Icon(Icons.arrow_back),
                         ),
                       ScaleTransition(
                         scale: _animation,
                         child: FloatingActionButton(
                           onPressed: _nextPart,
-                          child: Icon(Icons.navigate_next),
                           backgroundColor: Colors.orange,
+                          child: const Icon(Icons.navigate_next),
                         ),
                       ),
                     ],
@@ -233,13 +237,13 @@ class _CourtroomGameScreenState extends State<CourtroomGameScreen> with SingleTi
                 children: [
                   Text(
                     _question,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.blueAccent),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: _options.map(
@@ -249,14 +253,14 @@ class _CourtroomGameScreenState extends State<CourtroomGameScreen> with SingleTi
                           onPressed: () => _answerQuestion(option),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blueAccent,
-                            padding: EdgeInsets.symmetric(vertical: 12),
+                            padding: const EdgeInsets.symmetric(vertical: 12),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
                           child: Text(
                             option,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 18, color: Colors.white),
                             textAlign: TextAlign.center,
                           ),
@@ -264,10 +268,10 @@ class _CourtroomGameScreenState extends State<CourtroomGameScreen> with SingleTi
                       ),
                     ).toList(),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Text(
                     'Time Left: $_timer seconds',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
