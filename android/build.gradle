@@ -28,6 +28,21 @@ allprojects {
 rootProject.buildDir = '../build'
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
+    
+    // Apply ProGuard rules to all subprojects (including Flutter plugins)
+    afterEvaluate { project ->
+        if (project.hasProperty('android') && project.android.hasProperty('buildTypes')) {
+            project.android.buildTypes.all { buildType ->
+                if (buildType.name == 'release') {
+                    // Apply ProGuard rules to plugins to fix R8 errors
+                    def rulesFile = rootProject.file('app/proguard-rules.pro')
+                    if (rulesFile.exists()) {
+                        buildType.proguardFiles(rulesFile)
+                    }
+                }
+            }
+        }
+    }
 }
 // Removed evaluationDependsOn to prevent circular dependencies and plugin lifecycle errors
 // This was causing task creation failures for flutter_plugin_android_lifecycle
