@@ -3,6 +3,18 @@ workflows:
     name: iOS Workflow
     max_build_duration: 120
     instance_type: mac_mini_m1
+    # Trigger builds when pushing to v2.0 branch
+    triggering:
+      events:
+        - push
+        - pull_request
+      branch_patterns:
+        - pattern: 'v2.0'
+          include: true
+          source: true
+        - pattern: 'main'
+          include: true
+          source: true
     integrations:
       app_store_connect: codemagic
     environment:
@@ -53,6 +65,18 @@ workflows:
     name: Android Workflow
     max_build_duration: 120
     instance_type: mac_mini_m1
+    # Trigger builds when pushing to v2.0 branch
+    triggering:
+      events:
+        - push
+        - pull_request
+      branch_patterns:
+        - pattern: 'v2.0'
+          include: true
+          source: true
+        - pattern: 'main'
+          include: true
+          source: true
     environment:
       android_signing:
         - keystore_reference
